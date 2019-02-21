@@ -14,9 +14,9 @@ namespace ReviewSite.Repositories
         {
             reviewList = new List<Review>()
             {
-                new Review("Machine Learning", 1),
-                new Review("Python For Everybody", 2),
-                new Review("Web Applications For Everybody", 3)
+                new Review("Machine Learning", 1, "C#", "./images/MachineLearning.jpg", "It was really awesome", "It awesome"),
+                new Review("Python For Everybody", 2, "Python", "./images/PythonForEveryone.jpg", "It really is for everybody!", "Er'body can!"),
+                new Review("Web Applications For Everybody", 3, "MVC", "./images/WebAppsForEveryone.jpg", "It definitely not for everybody!", "Some people can!")
             };
         } 
 
