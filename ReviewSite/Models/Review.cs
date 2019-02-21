@@ -15,25 +15,26 @@ namespace ReviewSite.Models
 
         public string ImageURL { get; private set; }
 
-        public string Content { get; private set; }
+        public string Overview { get; private set; }
 
         public string Summary { get; private set; }
+
+        public List<string> UserOpinionList { get; set; }
 
         public Review()
         {
 
         }
 
-        public Review(string title, int id, string category, string imageURL, string content, string summary)
+        public Review(string title, int id, string category, string imageURL, string overview, string summary, List<string> userOpinionList)
         {
             Title = title;
             Id = id;
             Category = category;
             ImageURL = imageURL;
-            Content = content;
+            Overview = overview;
             Summary = summary;
+            UserOpinionList = userOpinionList;
         }
-
-
     }
 }
