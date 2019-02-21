@@ -1,4 +1,4 @@
-﻿
+﻿@model ReviewSite.Models.Review
 @{
     Layout = null;
 }
@@ -11,5 +11,10 @@
     <title>Details</title>
 </head>
 <body>
+    <section class="details">
+        <h2>@Model.Title</h2>
+        <h3>@Model.Category</h3>
+        <p>@Model.Content</p>
+    </section>
 </body>
 </html>
