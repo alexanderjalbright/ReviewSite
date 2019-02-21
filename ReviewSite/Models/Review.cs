@@ -19,12 +19,14 @@ namespace ReviewSite.Models
 
         public string Summary { get; private set; }
 
+        public List<string> UserOpinionList { get; set; }
+
         public Review()
         {
 
         }
 
-        public Review(string title, int id, string category, string imageURL, string overview, string summary)
+        public Review(string title, int id, string category, string imageURL, string overview, string summary, List<string> userOpinionList)
         {
             Title = title;
             Id = id;
@@ -32,6 +34,7 @@ namespace ReviewSite.Models
             ImageURL = imageURL;
             Overview = overview;
             Summary = summary;
+            UserOpinionList = userOpinionList;
         }
     }
 }

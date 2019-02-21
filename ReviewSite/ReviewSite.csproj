@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Reviews\**" />
+    <Content Remove="Views\Reviews\**" />
+    <EmbeddedResource Remove="Views\Reviews\**" />
+    <None Remove="Views\Reviews\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\ReviewsController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
