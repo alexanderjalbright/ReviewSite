@@ -12,7 +12,9 @@ namespace ReviewSite.Tests
 
         public ReviewModelTests()
         {
-            underTest = new Review("Machine Learning", 1, "Algorithms", "./images/MachineLearning.jpg", "Learn to use machine learning to your advantage.", "Learn Machine learning.", new List<string>() { "Its free!", "You get what you pay for and it's free.", "The instructors are racist." });
+            var userOpinionList = new List<string>() { "Its free!", "You get what you pay for and it's free.", "The instructors are racist." };
+            var tagList = new List<string>() { "Coding", "AI" };
+            underTest = new Review("Machine Learning", 1, "Algorithms", "./images/MachineLearning.jpg", "Learn to use machine learning to your advantage.", "Learn Machine learning.", tagList, userOpinionList);
         }
 
         [Fact]
@@ -79,6 +81,14 @@ namespace ReviewSite.Tests
         public void Review_Has_User_Opinion_List()
         {
             var result = underTest.UserOpinionList;
+
+            Assert.NotEmpty(result);
+        }
+
+        [Fact]
+        public void Review_Has_Tags()
+        {
+            var result = underTest.TagList;
 
             Assert.NotEmpty(result);
         }
