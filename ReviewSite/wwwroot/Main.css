@@ -1,0 +1,100 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 20rem 1fr 10rem;
+}
+
+header {
+    background: #eee;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+aside {
+    width: 40rem;
+    background: #ddd;
+}
+
+.reviews {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 70rem);
+    justify-content: center;
+    grid-gap: 4rem;
+    padding: 3rem 0rem;
+
+    flex-grow: 1;
+}
+
+.review-card {
+    display: grid;
+    height: 31.5rem;
+    grid-template-columns: 45% auto;
+    box-shadow: 0.5px 0.5px 3px #222;
+}
+
+
+.review-card-img {
+    object-fit: cover;
+    object-position: 80% 0%;
+    height: 100%;
+    width: 100%;
+}
+
+.review-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1.2rem;
+    color: #444;
+}
+
+.review-card-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+}
+
+.review-card-category {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: normal;
+    color: #222;
+}
+
+.review-card-summary {
+    margin-top: 3rem;
+    font-size: 1.5rem;
+}
+
+.review-card-content a {
+    align-self: flex-end;
+    margin-left: auto;
+    margin-top: auto;
+}
+
+.review-card-button {
+    background-color: #2271B3;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-family: 'Fira Sans'
+}

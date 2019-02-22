@@ -10,6 +10,9 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Reviews Index</title>
+    <link href="~/Main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Ubuntu" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -20,15 +23,24 @@
             <section class="reviews">
                 @foreach (var review in Model)
                 {
-                    <div class="review-card">
-                        <h2>@review.Title</h2>
-                        <h3>@review.Category</h3>
-                        <p>@review.Summary</p>
-                        <a href="/Review/Details/@review.Id">Details</a>
+                <div class="review-card">
+                    <img src="@review.ImageURL" class="review-card-img" />
+                    <div class="review-card-content">
+                        <h2 class="review-card-title">@review.Title</h2>
+                        <h3 class="review-card-category">@review.Category</h3>
+                        <p class="review-card-summary">@review.Summary</p>
+                        <a href="/Review/Details/@review.Id"><div class="review-card-button">Details</div></a>
                     </div>
+                </div>
                 }
             </section>
+            <aside>
+                
+            </aside>
         </main>
+        <footer>
+
+        </footer>
     </div>
 </body>
 </html>
