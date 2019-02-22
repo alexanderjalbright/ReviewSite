@@ -4,8 +4,13 @@
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
 html {
     font-size: 10px;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .container {
@@ -43,7 +48,7 @@ aside {
     display: grid;
     height: 31.5rem;
     grid-template-columns: 45% auto;
-    box-shadow: 1px 1px 5px #222;
+    box-shadow: 0.5px 0.5px 3px #222;
 }
 
 
@@ -58,14 +63,38 @@ aside {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 1rem;
+    padding: 1.2rem;
+    color: #444;
 }
 
-.review-card-content h2 {
-    font-size: 3rem;
+.review-card-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+}
+
+.review-card-category {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: normal;
+    color: #222;
+}
+
+.review-card-summary {
+    margin-top: 3rem;
+    font-size: 1.5rem;
 }
 
 .review-card-content a {
     align-self: flex-end;
     margin-left: auto;
+    margin-top: auto;
+}
+
+.review-card-button {
+    background-color: #2271B3;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-family: 'Fira Sans'
 }
