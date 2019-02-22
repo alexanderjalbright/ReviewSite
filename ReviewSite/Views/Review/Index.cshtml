@@ -10,6 +10,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Reviews Index</title>
+    <link href="~/Main.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
@@ -20,15 +21,24 @@
             <section class="reviews">
                 @foreach (var review in Model)
                 {
-                    <div class="review-card">
+                <div class="review-card">
+                    <img src="@review.ImageURL" class="review-card-img" />
+                    <div class="review-card-content">
                         <h2>@review.Title</h2>
                         <h3>@review.Category</h3>
                         <p>@review.Summary</p>
                         <a href="/Review/Details/@review.Id">Details</a>
                     </div>
+                </div>
                 }
             </section>
+            <aside>
+                
+            </aside>
         </main>
+        <footer>
+
+        </footer>
     </div>
 </body>
 </html>
