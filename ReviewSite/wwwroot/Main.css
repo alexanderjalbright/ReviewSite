@@ -85,10 +85,23 @@ aside {
     font-size: 1.5rem;
 }
 
-.review-card-content a {
-    align-self: flex-end;
-    margin-left: auto;
+.review-card-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
     margin-top: auto;
+}
+
+.review-card-rating {
+    color: gold;
+}
+
+.num-reviews {
+    color: black;
+    font-size: 1.3rem;
+    margin-left: 1rem;
 }
 
 .review-card-button {
