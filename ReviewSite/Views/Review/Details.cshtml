@@ -2,7 +2,6 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
 
 <html>
@@ -51,11 +50,13 @@
             </div>
         </div>
         <div class="right">
-            <div class="post_image"><img src=@Model.ImageURL /></div>
+            <div class="post_image"><img  class="post_image" src=@Model.ImageURL /></div>
             <div class="tags">
             @foreach(var tag in Model.TagList)
             {
-                <li>@tag.ToString()</li>
+                <ul>
+                    <li>@tag.ToString()</li>
+                </ul>
             }
             </div>
         </div>
