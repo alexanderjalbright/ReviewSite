@@ -11,11 +11,11 @@
     <link href="~/Details.css" rel="stylesheet" />
     <title>Details</title>
 </head>
-<body>
+<body>g
     <div class="container">
         <div class="left">
             <div class="nested">
-                <div class="title"> <h2>@Model.Title</h2></div>
+                <div class="title">  @Model.Title </div>
                 <div class="vote">
                     <span>☆</span>
                     <span>☆</span>
@@ -25,23 +25,43 @@
                 </div>
                 <div class="text">
                     <p>
-                        @Model.Overview
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Voluptatibus amet iure reprehenderit assumenda iste, 
+                        fuga perspiciatis omnis aliquam excepturi unde porro 
+                        perferendis nam sit voluptate neque quae fugit illo nobis. 
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                        Velit, optio deleniti ratione explicabo maiores earum quos 
+                        esse tempora, libero corrupti dolores pariatur praesentium 
+                        ipsum atque omnis obcaecati odio molestiae expedita recusandae 
+                        blanditiis illum itaque sit error rem! Quibusdam architecto 
+                        laudantium laboriosam repellat in. Porro commodi iure placeat, 
+                        optio dolorum cupiditate architecto aut! Corporis saepe ex aspernatur. 
+                        Illo eius unde at, veritatis, cumque, totam facilis molestias sit quis 
+                        repudiandae consequatur mollitia. Quia sunt veritatis impedit dolore 
+                        consectetur obcaecati doloremque facilis autem velit aut reprehenderit 
+                        quasi excepturi adipisci, quis vero, consequatur similique veniam esse, 
+                        molestiae eius expedita? Deserunt tenetur beatae necessitatibus neque iste nobis 
+                        culpa natus, totam deleniti similique ab, expedita pariatur dicta, blanditiis non 
+                        ipsa explicabo et exercitationem quaerat cupiditate! Consequatur!
+                        here is gonna be picture
+
 
                     </p>
                 </div>
             </div>
         </div>
         <div class="right">
-            <div class="post_image"><img src=@Review.ImageURL" /></div>
-            <div class="tags">here is gonna be tons of tagss</div>
+            <div class="post_image"><img src=@Model.ImageURL /></div>
+            <div class="tags">
+            @foreach(var tag in Model.TagList)
+            {
+                <li>@tag.ToString()</li>
+            }
+            </div>
         </div>
     </div>
-
-
-    @*<section class="details">
-           <div> <h2>@Model.Title</h2></div>>f
-            <h3>@Model.Category</h3>
-            <p>@Model.Overview</p>
-        </section>*@
+   
 </body>
 </html>
+
+ 
