@@ -8,13 +8,40 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/Details.css" rel="stylesheet" />
     <title>Details</title>
 </head>
 <body>
-    <section class="details">
-        <h2>@Model.Title</h2>
-        <h3>@Model.Category</h3>
-        <p>@Model.Overview</p>
-    </section>
+    <div class="container">
+        <div class="left">
+            <div class="nested">
+                <div class="title"> <h2>@Model.Title</h2></div>
+                <div class="vote">
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                </div>
+                <div class="text">
+                    <p>
+                        @Model.Overview
+
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="post_image"><img src=@Review.ImageURL" /></div>
+            <div class="tags">here is gonna be tons of tagss</div>
+        </div>
+    </div>
+
+
+    @*<section class="details">
+           <div> <h2>@Model.Title</h2></div>>f
+            <h3>@Model.Category</h3>
+            <p>@Model.Overview</p>
+        </section>*@
 </body>
 </html>

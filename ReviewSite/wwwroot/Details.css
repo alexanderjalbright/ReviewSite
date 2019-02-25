@@ -1,0 +1,56 @@
+.container
+{ 
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+    border:1px green solid;
+    grid-gap: 2em;
+ 
+    flex-wrap: wrap;
+}
+.left
+{
+     
+}
+.nested
+{
+ display: grid;
+ grid-template-rows: 0.5fr 0.5fr 3fr;
+
+
+}
+.title
+{
+    font-size: 2em;
+    padding :1em;
+}
+.vote   /*change vote to rate in future */
+{ 
+     padding-left: 1em;
+    content: "\2605";
+    direction: ltr;
+    font-size: 3em;
+}
+
+.text
+{
+  
+    padding: 3em;
+}
+.right /* right grid */
+{
+  display: grid;
+  grid-template: 1fr 2fr;
+  grid-column: auto;
+  grid-gap: 10px;
+}
+.post_image
+{
+ background-attachment: fixed;
+ background:url(Images/);
+}
+.tags
+{
+    border-top: 2px black solid;
+}
