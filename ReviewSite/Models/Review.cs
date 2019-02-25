@@ -19,7 +19,9 @@ namespace ReviewSite.Models
 
         public string Summary { get; private set; }
 
-        public List<string> UserOpinionList { get; private set; }
+        public string AvgRating { get; private set; }
+
+        public List<UserReview> UserOpinionList { get; private set; }
 
         public List<string> TagList { get; private set; }
 
@@ -38,11 +40,11 @@ namespace ReviewSite.Models
             Overview = overview;
             Summary = summary;
             TagList = taglist;
-            UserOpinionList = new List<string>();
+            UserOpinionList = new List<UserReview>();
         }
 
         // For when testing with hard coded user reviews
-        public Review(string title, int id, string category, string imageURL, string overview, string summary, List<string> taglist, List<string> userOpinionList)
+        public Review(string title, int id, string category, string imageURL, string overview, string summary, List<string> taglist, List<UserReview> userOpinionList)
         {
             Title = title;
             Id = id;
@@ -52,6 +54,21 @@ namespace ReviewSite.Models
             Summary = summary;
             UserOpinionList = userOpinionList;
             TagList = taglist;
+        }
+
+        public decimal AverageRating()
+        {
+            decimal totalRating = 0M;
+            foreach (UserReview review  in UserOpinionList)
+            {
+                totalRating += review.Rating;
+            }
+
+            decimal avgRating = totalRating / UserOpinionList.Count;
+
+            decimal roundedAvgRating = Math.Round(avgRating, 1);
+
+            return roundedAvgRating;
         }
     }
 }

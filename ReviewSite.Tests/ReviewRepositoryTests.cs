@@ -9,11 +9,16 @@ namespace ReviewSite.Tests
 {
     public class ReviewRepositoryTests
     {
+        ReviewRepository underTest;
+
+        public ReviewRepositoryTests()
+        {
+            underTest = new ReviewRepository();
+        }
+
         [Fact]
         public void Review_Repo_Has_List()
         {
-            var underTest = new ReviewRepository();
-
             var result = underTest.Count();
             int expected = 0;
 
@@ -23,8 +28,6 @@ namespace ReviewSite.Tests
         [Fact]
         public void Review_Repo_Returns_List()
         {
-            var underTest = new ReviewRepository();
-
             var result = underTest.GetAll();
 
             Assert.IsType<List<Review>>(result);
@@ -33,8 +36,6 @@ namespace ReviewSite.Tests
         [Fact]
         public void Review_Repo_Returns_A_Review()
         {
-            var underTest = new ReviewRepository();
-
             var result = underTest.GetById(1);
 
             Assert.IsType<Review>(result);
@@ -43,10 +44,18 @@ namespace ReviewSite.Tests
         [Fact]
         public void Review_Repo_Returns_Review_With_Matching_Id()
         {
-            var underTest = new ReviewRepository();
             int expected = 1;
 
             var result = underTest.GetById(1).Id;
+
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void Review_Repo_Returns_User_Review()
+        {
+            string result = underTest.GetById(1).UserOpinionList[0].UserName;
+            string expected = "MoocJunkie";
 
             Assert.Equal(expected, result);
         }

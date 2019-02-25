@@ -12,9 +12,22 @@ namespace ReviewSite.Tests
 
         public ReviewModelTests()
         {
-            var userOpinionList = new List<string>() { "Its free!", "You get what you pay for and it's free.", "The instructors are racist." };
-            var tagList = new List<string>() { "Coding", "AI" };
-            underTest = new Review("Machine Learning", 1, "Algorithms", "./images/MachineLearning.jpg", "Learn to use machine learning to your advantage.", "Learn Machine learning.", tagList, userOpinionList);
+            underTest = new Review
+                (
+                    "Machine Learning",
+                    1,
+                    "Algorithms",
+                    "/Images/machinelearning.jpg",
+                    "Learn to use machine learning to your advantage.",
+                    "Learn Machine learning.",
+                    new List<string>() { "Coding", "AI" },
+                    new List<UserReview>()
+                    {
+                        new UserReview("MoocJunkie", "Its free!", 3.3M),
+                        new UserReview("SwagYoloFleekDabs", "You get what you pay for and it's free.", 4.1M),
+                        new UserReview("xXx_DragonSlayer_xXx", "The instructors are racist.", 3.9M)
+                    }
+                );
         }
 
         [Fact]
@@ -50,7 +63,7 @@ namespace ReviewSite.Tests
         [Fact]
         public void Review_Has_Image_URL()
         {
-            string expected = "./images/MachineLearning.jpg";
+            string expected = "/Images/machinelearning.jpg";
 
             var result = underTest.ImageURL;
 
@@ -91,6 +104,16 @@ namespace ReviewSite.Tests
             var result = underTest.TagList;
 
             Assert.NotEmpty(result);
+        }
+
+        [Fact]
+        public void Review_Has_Average_Rating()
+        {
+            var result = underTest.AverageRating();
+
+            decimal expected = 3.8M;
+
+            Assert.Equal(expected, result);
         }
     }
 }
