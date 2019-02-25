@@ -16,6 +16,8 @@ html {
 .container {
     display: grid;
     grid-template-rows: 20rem 1fr 10rem;
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
 header {
@@ -24,14 +26,48 @@ header {
 
 main {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: flex-start;
     align-items: stretch;
 }
 
 aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1rem;
+    
     width: 40rem;
-    background: #ddd;
+}
+
+aside h1 {
+    color: #444;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.sort-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    height: 5rem;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 5px #ccc;
+    margin: 1rem 0;
+    padding: 2rem;
+    font-size: 1.5rem;
+}
+
+.sort-box p {
+    color: #3988ca;
+    font-weight: bold;
+}
+
+.sort-box i {
+    color: #555;
 }
 
 .reviews {
