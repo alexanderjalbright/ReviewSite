@@ -19,12 +19,19 @@
             <div class="content">
                 <h1 class="course-title">@Model.Title</h1>
                 <div class="course-rating">
-                    <i class="fas fa-star fa-2x"></i>
-                    <i class="fas fa-star fa-2x"></i>
-                    <i class="fas fa-star fa-2x"></i>
-                    <i class="far fa-star fa-2x"></i>
-                    <i class="far fa-star fa-2x"></i>
-                    <span class="num-reviews">(42)</span>
+                    @for (int i = 0; i < Model.SolidStars(); i++)
+                    {
+                        <i class="fas fa-star fa-2x"></i>
+                    }
+                    @for (int i = 0; i < Model.HalfStars(); i++)
+                    {
+                        <i class="fas fa-star-half-alt fa-2x"></i>
+                    }
+                    @for (int i = 0; i < Model.EmptyStars(); i++)
+                    {
+                        <i class="far fa-star fa-2x"></i>
+                    }
+                    <span class="num-reviews">(@Model.UserOpinionList.Count)</span>
                 </div>
                 <div class="course-nav">
                     <a href="#">Overview</a> |

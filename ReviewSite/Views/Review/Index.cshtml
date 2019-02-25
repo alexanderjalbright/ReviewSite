@@ -31,12 +31,19 @@
                         <p class="review-card-summary">@review.Summary</p>
                         <div class="review-card-footer">
                             <div class="review-card-rating">
-                                <i class="fas fa-star fa-2x"></i>
-                                <i class="fas fa-star fa-2x"></i>
-                                <i class="fas fa-star fa-2x"></i>
-                                <i class="far fa-star fa-2x"></i>
-                                <i class="far fa-star fa-2x"></i>
-                                <span class="num-reviews">(42)</span>
+                                @for (int i = 0; i < review.SolidStars(); i++)
+                                {
+                                    <i class="fas fa-star fa-2x"></i>
+                                }
+                                @for (int i = 0; i < review.HalfStars(); i++)
+                                {
+                                    <i class="fas fa-star-half-alt fa-2x"></i>
+                                }
+                                @for (int i = 0; i < review.EmptyStars(); i++)
+                                {
+                                    <i class="far fa-star fa-2x"></i>
+                                }
+                                <span class="num-reviews">(@review.UserOpinionList.Count)</span>
                             </div>
                             <a href="/Review/Details/@review.Id"><div class="review-card-button">Details</div></a>
                         </div>
