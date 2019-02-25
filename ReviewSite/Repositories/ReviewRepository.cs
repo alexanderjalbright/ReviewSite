@@ -28,6 +28,7 @@ namespace ReviewSite.Repositories
                         new UserReview("MoocJunkie", "Its free!", 3.3M),
                         new UserReview("SwagYoloFleekDabs", "You get what you pay for and it's free.", 4.1M),
                         new UserReview("xXx_DragonSlayer_xXx", "The instructors are racist.", 3.9M)
+
                     }
                 ),
                 new Review
@@ -41,9 +42,9 @@ namespace ReviewSite.Repositories
                     new List<string>() {"Python", "Algorithms", "Coding"},
                     new List<UserReview>()
                     {
-                        new UserReview("anegronjr", "Its so close!", 2.2M),
-                        new UserReview("alexanderjalbright", "The carpets smell like urine.", 1.7M),
-                        new UserReview("khanishvili", "The coffee has a peculiar taste.", 2.2M)
+                        new UserReview("JoeLovesFishing_USA", "The instructors love you like their own family!", 4.9M),
+                        new UserReview("elDiablo1992", "If I could experience Groundhog Day here, I'd still never get enough.", 5.0M),
+                        new UserReview("W3CanC0d31T", "This place attracts weirdos.", 4.1M)
                     }
                 ),
                 new Review
@@ -57,9 +58,14 @@ namespace ReviewSite.Repositories
                     new List<string>() {"C#", "ASP.NET", "MVC"},
                     new List<UserReview>()
                     {
-                        new UserReview("JoeLovesFishing_USA", "The instructors love you like their own family!", 4.9M),
-                        new UserReview("elDiablo1992", "If I could experience Groundhog Day here, I'd still never get enough.", 5.0M),
-                        new UserReview("W3CanC0d31T", "This place attracts weirdos.", 4.1M)
+                        new UserReview("anegronjr", "Its so close!", 2.2M),
+                        new UserReview("alexanderjalbright", "The carpets smell like urine.", 1.7M),
+                        new UserReview("khanishvili", "The coffee has a peculiar taste.", 2.2M),
+                        new UserReview("jen3ten", "The coffee has a peculiar taste.", 2.3M),
+                        new UserReview("MaryMcGeary", "The coffee has a peculiar taste.", 2.0M),
+                        new UserReview("mroyski", "The coffee has a peculiar taste.", 1.5M),
+                        new UserReview("aldenmolina", "The coffee has a peculiar taste.", 3.0M),
+                        new UserReview("JoeScheiman", "The coffee has a peculiar taste.", 3.0M)                        
                     }
                 )
             };

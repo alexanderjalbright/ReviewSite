@@ -115,5 +115,32 @@ namespace ReviewSite.Tests
 
             Assert.Equal(expected, result);
         }
+
+        [Fact]
+        public void Review_Calculates_Solid_Stars()
+        {
+            var result = underTest.SolidStars();
+            int expected = 3;
+
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void Review_Calculates_Half_Stars()
+        {
+            var result = underTest.HalfStars();
+            int expected = 1;
+
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void Review_Calculates_Empty_Stars()
+        {
+            var result = underTest.EmptyStars();
+            int expected = 1;
+
+            Assert.Equal(expected, result);
+        }
     }
 }
