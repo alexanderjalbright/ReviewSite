@@ -29,13 +29,32 @@
                         <h2 class="review-card-title">@review.Title</h2>
                         <h3 class="review-card-category">@review.Category</h3>
                         <p class="review-card-summary">@review.Summary</p>
-                        <a href="/Review/Details/@review.Id"><div class="review-card-button">Details</div></a>
+                        <div class="review-card-footer">
+                            <div class="review-card-rating">
+                                <i class="fas fa-star fa-2x"></i>
+                                <i class="fas fa-star fa-2x"></i>
+                                <i class="fas fa-star fa-2x"></i>
+                                <i class="far fa-star fa-2x"></i>
+                                <i class="far fa-star fa-2x"></i>
+                                <span class="num-reviews">(42)</span>
+                            </div>
+                            <a href="/Review/Details/@review.Id"><div class="review-card-button">Details</div></a>
+                        </div>
                     </div>
                 </div>
                 }
             </section>
             <aside>
-                
+                <h1>All Courses</h1>
+                <div class="sort-box">
+                    <p>By Subject</p><i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="sort-box">
+                    <p>By Rating</p><i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="sort-box">
+                    <p>By Provider</p><i class="fas fa-chevron-right"></i>
+                </div>
             </aside>
         </main>
         <footer>
