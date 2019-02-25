@@ -1,0 +1,116 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.container {
+    /*margin: 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+    border: 1px green solid;
+    grid-gap: 2em;
+   
+    flex-wrap: wrap;*/
+
+    display: grid;
+    grid-template-rows: 20rem 1fr 10rem;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+header {
+    background: #eee;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 3rem;
+    flex-grow: 1;
+}
+
+.course-title {
+    color: #444;
+    font-size: 6rem;
+}
+
+.course-rating {
+    font-size: 1.5rem;
+    color: gold;
+}
+
+.num-reviews {
+    color: #444;
+}
+
+.course-nav {
+    margin-top: 5rem;
+    align-self: center;
+    font-size: 4rem;
+}
+
+.course-nav a{
+    color: #555;
+    letter-spacing: 2px;
+    margin: 0 2rem;
+}
+
+.course-content {
+    padding: 3rem;
+    font-size: 2rem;
+}
+
+hr {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    color: #ddd;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    width: 70rem;
+    padding: 1rem 1rem;
+    margin: 2rem;
+    flex-shrink: 0;
+    box-shadow: 1px 1px 5px black;
+}
+
+.post-img {
+    object-fit: contain;
+    width: 100%;
+    height: 35rem;
+}
+
+.post-details {
+    font-family: 'Fira Sans', sans-serif;
+    margin: 4rem 2rem 0rem 2rem;
+    color: #222;
+}
+
+.post-details p {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.post-details span {
+    font-weight: bold;
+}
