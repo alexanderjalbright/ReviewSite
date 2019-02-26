@@ -7,23 +7,23 @@ namespace ReviewSite.Models
 {
     public class Review
     {
-        public string Title { get; private set; }
+        public string Title { get; set; }
 
-        public int Id { get; private set; }
+        public int Id { get; set; }
 
-        public string Category { get; private set; }
+        public string Category { get; set; }
 
-        public string ImageURL { get; private set; }
+        public string ImageURL { get; set; }
 
-        public string Overview { get; private set; }
+        public string Overview { get; set; }
 
-        public string Summary { get; private set; }
+        public string Summary { get; set; }
 
-        public string AvgRating { get; private set; }
+        public string AvgRating { get; set; }
 
-        public List<UserReview> UserOpinionList { get; private set; }
+        public List<UserReview> UserOpinionList { get; set; }
 
-        public List<string> TagList { get; private set; }
+        public List<string> TagList { get; set; }
 
         public Review()
         {

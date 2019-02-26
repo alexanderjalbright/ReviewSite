@@ -14,60 +14,129 @@ namespace ReviewSite.Repositories
         {
             reviewList = new List<Review>()
             {
-                new Review
-                (
-                    "Machine Learning",
-                    1,
-                    "Algorithms",
-                    "/Images/machinelearning.jpg",
-                    "Learn to use machine learning to your advantage.",
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-                    new List<string>() {"C#", "Algorithms", "Machine Learning"},
-                    new List<UserReview>()
+                new Review()
+                {
+                    Title = "Machine Learning",
+                    Id = 1,
+                    Category = "Algorithms",
+                    ImageURL = "/Images/machinelearning.jpg",
+                    Overview = "Learn to use machine learning to your advantage.",
+                    Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+                    TagList = new List<string>() {"C#", "Algorithms", "Machine Learning"},
+                    UserOpinionList =  new List<UserReview>()
                     {
-                        new UserReview("MoocJunkie", "Its free!", 3.3M),
-                        new UserReview("SwagYoloFleekDabs", "You get what you pay for and it's free.", 4.1M),
-                        new UserReview("xXx_DragonSlayer_xXx", "The instructors are racist.", 3.9M)
+                        new UserReview()
+                        {
+                            UserName = "MoocJunkie",
+                            Comment = "Its free!",
+                            Rating = 3.3M
+                        },
+                        new UserReview()
+                        {
+                            UserName = "SwagYoloFleekDabs",
+                            Comment = "You get what you pay for and it's free.",
+                            Rating = 4.1M
+                        },
+                        new UserReview(){
+                            UserName = "xXx_DragonSlayer_xXx",
+                            Comment = "The instructors are racist.",
+                            Rating = 3.9M
+                        }
 
                     }
-                ),
-                new Review
-                (
-                    "Python For Everybody", 
-                    2, 
-                    "Python", 
-                    "/Images/pythonforeveryone.jpg", 
-                    "It really is for everybody!", 
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-                    new List<string>() {"Python", "Algorithms", "Coding"},
-                    new List<UserReview>()
+                },
+                new Review()
+                {
+                    Title = "Python For Everybody",
+                    Id = 2,
+                    Category = "Python",
+                    ImageURL = "/Images/pythonforeveryone.jpg",
+                    Overview = "It really is for everybody!",
+                    Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+                    TagList = new List<string>() {"Python", "Algorithms", "Coding"},
+                    UserOpinionList = new List<UserReview>()
                     {
-                        new UserReview("JoeLovesFishing_USA", "The instructors love you like their own family!", 4.9M),
-                        new UserReview("elDiablo1992", "If I could experience Groundhog Day here, I'd still never get enough.", 5.0M),
-                        new UserReview("W3CanC0d31T", "This place attracts weirdos.", 4.1M)
+                        new UserReview()
+                        {
+                            UserName = "JoeLovesFishing_USA",
+                            Comment = "The instructors love you like their own family!",
+                            Rating = 4.9M
+                        },
+                        new UserReview()
+                        {
+                            UserName = "elDiablo1992",
+                            Comment = "If I could experience Groundhog Day here, I'd still never get enough.",
+                            Rating = 5.0M
+                        },
+                        new UserReview()
+                        {
+                            UserName = "W3CanC0d31T",
+                            Comment = "This place attracts weirdos.",
+                            Rating = 4.1M
+                        }
                     }
-                ),
-                new Review
-                (
-                    "WWKD?", 
-                    3, 
-                    "What would Kyle do?", 
-                    "/Images/wwkd.jpg", 
-                    "It's definitely not for everybody!", 
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-                    new List<string>() {"C#", "ASP.NET", "MVC"},
-                    new List<UserReview>()
+                },
+                new Review()
+                {
+                    Title = "WWKD?",
+                    Id = 3,
+                    Category = "What would Kyle do?",
+                    ImageURL = "/Images/wwkd.jpg",
+                    Overview = "It's definitely not for everybody!",
+                    Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+                    TagList = new List<string>() {"C#", "ASP.NET", "MVC"},
+                    UserOpinionList = new List<UserReview>()
                     {
-                        new UserReview("anegronjr", "Its so close!", 2.2M),
-                        new UserReview("alexanderjalbright", "The carpets smell like urine.", 1.7M),
-                        new UserReview("khanishvili", "The coffee has a peculiar taste.", 2.2M),
-                        new UserReview("jen3ten", "The coffee has a peculiar taste.", 2.3M),
-                        new UserReview("MaryMcGeary", "The coffee has a peculiar taste.", 2.0M),
-                        new UserReview("mroyski", "The coffee has a peculiar taste.", 1.5M),
-                        new UserReview("aldenmolina", "The coffee has a peculiar taste.", 3.0M),
-                        new UserReview("JoeScheiman", "The coffee has a peculiar taste.", 3.0M)                        
+                        new UserReview()
+                        {
+                            UserName = "anegronjr",
+                            Comment = "Its so close!",
+                            Rating = 2.2M
+                        },
+                        new UserReview()
+                        {
+                            UserName = "alexanderjalbright",
+                            Comment = "The carpets smell like urine.",
+                            Rating = 1.7M
+                        },
+                        new UserReview()
+                        {
+                            UserName = "khanishvili",
+                            Comment = "The coffee has a peculiar taste.",
+                            Rating = 2.2M
+                        },
+                        new UserReview()
+                        {
+                            UserName = "jen3ten",
+                            Comment = "The coffee has a peculiar taste.",
+                            Rating = 2.3M
+                        },
+                        new UserReview()
+                        {
+                            UserName = "MaryMcGeary",
+                            Comment = "The coffee has a peculiar taste.",
+                            Rating = 2.0M
+                        },
+                        new UserReview()
+                        {
+                            UserName = "mroyski",
+                            Comment = "The coffee has a peculiar taste.",
+                            Rating = 1.5M
+                        },
+                        new UserReview()
+                        {
+                            UserName = "aldenmolina",
+                            Comment = "The coffee has a peculiar taste.",
+                            Rating = 3.0M
+                        },
+                        new UserReview()
+                        {
+                            UserName = "JoeScheiman",
+                            Comment = "The coffee has a peculiar taste.",
+                            Rating = 3.0M
+                        }
                     }
-                )
+                }
             };
         } 
 
