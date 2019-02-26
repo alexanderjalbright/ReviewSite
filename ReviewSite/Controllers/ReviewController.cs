@@ -9,20 +9,23 @@ namespace ReviewSite.Controllers
 {
     public class ReviewController : Controller
     {
+        ReviewRepository repo;
+        public ReviewController(ReviewRepository repo )
+        {
+            this.repo = repo;
+        }
         public ViewResult Index()
         {
-            ReviewRepository reviewRepo = new ReviewRepository();
-
-            var model = reviewRepo.GetAll();
+           
+            var model = repo.GetAll();
 
             return View(model);
         }
 
         public ViewResult Details(int id)
         {
-            ReviewRepository reviewRepo = new ReviewRepository();
-
-            var model = reviewRepo.GetById(id);
+ 
+            var model = repo.GetById(id);
             return View(model);
         }
     }
