@@ -10,7 +10,7 @@ namespace ReviewSite.Models
     {
         public string Title { get; set; }
 
-        public int Id { get; set; }
+        public int ReviewId { get; set; }
 
         public string Category { get; set; }
 

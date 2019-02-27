@@ -40,6 +40,7 @@ namespace ReviewSite
                             UserName = "MoocJunkie",
                             Comment = "Its free!",
                             Rating = 3.3M
+
                         },
                         new UserReview()
                         {
