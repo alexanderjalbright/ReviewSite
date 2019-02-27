@@ -30,7 +30,7 @@
                         <h3 class="review-card-category">@review.Category</h3>
                         <p class="review-card-summary">@review.Summary</p>
                         <div class="review-card-footer">
-                            <div class="review-card-rating">
+                            @*<div class="review-card-rating">
                                 @for (int i = 0; i < review.SolidStars(); i++)
                                 {
                                     <i class="fas fa-star fa-2x"></i>
@@ -44,7 +44,7 @@
                                     <i class="far fa-star fa-2x"></i>
                                 }
                                 <span class="num-reviews">(@review.UserOpinionList.Count)</span>
-                            </div>
+                            </div>*@
                             <a href="/Review/Details/@review.Id"><div class="review-card-button">Details</div></a>
                         </div>
                     </div>

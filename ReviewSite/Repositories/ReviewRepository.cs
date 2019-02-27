@@ -8,8 +8,6 @@ namespace ReviewSite.Repositories
 {
     public class ReviewRepository
     {
-        List<Review> reviewList;
-
         ReviewContext db;
 
         public ReviewRepository(ReviewContext db)

@@ -1,4 +1,5 @@
-﻿using ReviewSite.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using ReviewSite.Models;
 using ReviewSite.Repositories;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace ReviewSite.Tests
 
         public ReviewRepositoryTests()
         {
-            underTest = new ReviewRepository();
+            underTest = new ReviewRepository(new ReviewContext());
         }
 
         [Fact]

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReviewSite.Controllers;
 using ReviewSite.Models;
+using ReviewSite.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +15,7 @@ namespace ReviewSite.Tests
 
         public ReviewControllerTests()
         {
-            underTest = new ReviewController();
+            underTest = new ReviewController(new ReviewRepository(new ReviewContext()));
         }
 
         [Fact]
