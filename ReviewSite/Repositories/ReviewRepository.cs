@@ -29,7 +29,7 @@ namespace ReviewSite.Repositories
 
         public Review GetById(int id)
         {            
-            return db.Reviews.Single(review => review.Id == id);
+            return db.Reviews.Single(review => review.ReviewId == id);
         }
     }
 }
