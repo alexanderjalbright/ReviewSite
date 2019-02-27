@@ -12,7 +12,7 @@ namespace ReviewSite
         public DbSet<Category> Categories { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<UserReview> UserReviews { get; set; }
-
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString = "Server=(localdb)\\mssqllocaldb;Database=nbnReviewSite;Trusted_Connection=True;";
@@ -30,17 +30,12 @@ namespace ReviewSite
                     new Category()
                     {
                         CategoryId = 1,
-                        Name = "Machine Learning"
+                        Name = "C#"
                     },
                     new Category()
                     {
                         CategoryId = 2,
                         Name = "Python"
-                    },
-                    new Category()
-                    {
-                        CategoryId = 3,
-                        Name = "C#"
                     }
                 );
 
@@ -75,7 +70,7 @@ namespace ReviewSite
                         Overview = "What would Kyle do?",
                         Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
                         TagList = new List<string>() { "C#", "ASP.NET", "MVC" },
-                        CategoryId = 3
+                        CategoryId = 1
                     }
                 );
 
