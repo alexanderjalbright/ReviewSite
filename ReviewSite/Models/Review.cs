@@ -12,8 +12,6 @@ namespace ReviewSite.Models
 
         public int ReviewId { get; set; }
 
-        public string Category { get; set; }
-
         public string ImageURL { get; set; }
 
         public string Overview { get; set; }
@@ -23,6 +21,10 @@ namespace ReviewSite.Models
         public string AvgRating { get; set; }
 
         public virtual IEnumerable<UserReview> UserReview { get; set; }
+
+        public int CategoryId { get; set; }
+
+        public virtual Category Category { get; set; }
         
         [NotMapped]
         public ICollection<string> TagList { get; set; }
@@ -33,11 +35,10 @@ namespace ReviewSite.Models
         }
         
         // For when a real review is made
-        public Review(string title, int id, string category, string imageURL, string overview, string summary, List<string> taglist)
+        public Review(string title, int id, string imageURL, string overview, string summary, List<string> taglist)
         {
             Title = title;
             ReviewId = id;
-            Category = category;
             ImageURL = imageURL;
             Overview = overview;
             Summary = summary;
@@ -46,11 +47,10 @@ namespace ReviewSite.Models
         }
 
         // For when testing with hard coded user reviews
-        public Review(string title, int id, string category, string imageURL, string overview, string summary, List<string> taglist, List<UserReview> userReview)
+        public Review(string title, int id, string imageURL, string overview, string summary, List<string> taglist, List<UserReview> userReview)
         {
             Title = title;
             ReviewId = id;
-            Category = category;
             ImageURL = imageURL;
             Overview = overview;
             Summary = summary;

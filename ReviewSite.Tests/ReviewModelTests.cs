@@ -16,7 +16,6 @@ namespace ReviewSite.Tests
                 (
                     "Machine Learning",
                     1,
-                    "Algorithms",
                     "/Images/machinelearning.jpg",
                     "Learn to use machine learning to your advantage.",
                     "Learn Machine learning.",
@@ -46,16 +45,6 @@ namespace ReviewSite.Tests
             int expected = 1;
 
             var result = underTest.ReviewId;
-
-            Assert.Equal(expected, result);
-        }
-
-        [Fact]
-        public void Review_Has_Category()
-        {
-            string expected = "Algorithms";
-
-            var result = underTest.Category;
 
             Assert.Equal(expected, result);
         }
