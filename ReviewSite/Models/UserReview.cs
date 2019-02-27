@@ -7,7 +7,7 @@ namespace ReviewSite.Models
 {
     public class UserReview
     {
-        public string UserReviewId { get; set; }
+        public int UserReviewId { get; set; }
 
         public string UserName { get; set; }
 
@@ -15,9 +15,9 @@ namespace ReviewSite.Models
 
         public decimal Rating { get; set; }
 
-        public string ReviewId { get; set; }
+        public int ReviewId { get; set; }
 
-        public Review Review { get; set; }
+        public virtual Review Review { get; set; }
 
         public UserReview()
         {

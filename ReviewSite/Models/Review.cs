@@ -22,11 +22,10 @@ namespace ReviewSite.Models
 
         public string AvgRating { get; set; }
 
+        public virtual IEnumerable<UserReview> UserReview { get; set; }
+        
         [NotMapped]
-        public List<UserReview> UserOpinionList { get; set; }
-
-        [NotMapped]
-        public List<string> TagList { get; set; }
+        public ICollection<string> TagList { get; set; }
 
         public Review()
         {
@@ -37,37 +36,37 @@ namespace ReviewSite.Models
         public Review(string title, int id, string category, string imageURL, string overview, string summary, List<string> taglist)
         {
             Title = title;
-            Id = id;
+            ReviewId = id;
             Category = category;
             ImageURL = imageURL;
             Overview = overview;
             Summary = summary;
             TagList = taglist;
-            UserOpinionList = new List<UserReview>();
+            UserReview = new List<UserReview>();
         }
 
         // For when testing with hard coded user reviews
-        public Review(string title, int id, string category, string imageURL, string overview, string summary, List<string> taglist, List<UserReview> userOpinionList)
+        public Review(string title, int id, string category, string imageURL, string overview, string summary, List<string> taglist, List<UserReview> userReview)
         {
             Title = title;
-            Id = id;
+            ReviewId = id;
             Category = category;
             ImageURL = imageURL;
             Overview = overview;
             Summary = summary;
-            UserOpinionList = userOpinionList;
+            UserReview = userReview;
             TagList = taglist;
         }
 
         public decimal AverageRating()
         {
             decimal totalRating = 0M;
-            foreach (UserReview review in UserOpinionList)
+            foreach (UserReview review in UserReview)
             {
                 totalRating += review.Rating;
             }
 
-            decimal avgRating = totalRating / UserOpinionList.Count;
+            decimal avgRating = totalRating / UserReview.Count();
 
             decimal roundedAvgRating = Math.Round(avgRating, 1);
 
