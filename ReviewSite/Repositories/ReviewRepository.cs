@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+ 
 namespace ReviewSite.Repositories
 {
     public class ReviewRepository
@@ -142,7 +142,7 @@ namespace ReviewSite.Repositories
 
         public int Count()
         {
-            int count = reviewList.Count;
+            int count = db.Reviews.Count();
 
             return count;
         }

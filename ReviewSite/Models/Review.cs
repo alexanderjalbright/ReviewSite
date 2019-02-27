@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,9 +21,9 @@ namespace ReviewSite.Models
         public string Summary { get; set; }
 
         public string AvgRating { get; set; }
-
+        [NotMapped]
         public List<UserReview> UserOpinionList { get; set; }
-
+        [NotMapped]
         public List<string> TagList { get; set; }
 
         public Review()

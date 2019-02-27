@@ -10,10 +10,8 @@ namespace ReviewSite
     {
         public DbSet<Review> Reviews {get;set;}
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            var connectionString = "Server=(localdb)\\mssqllocaldb;" +
-                "Database=nbnReviewSite;" +
-                "Trusted_Connection=True;";
+        {                                           //mssqllocaldb
+            var connectionString = "Server=(localdb)\\mssqllocaldb;Database=nbnReviewSite;Trusted_Connection=True;";
 
             optionsBuilder.UseSqlServer(connectionString)
                           .UseLazyLoadingProxies();

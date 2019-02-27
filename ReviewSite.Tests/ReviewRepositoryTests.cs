@@ -13,7 +13,7 @@ namespace ReviewSite.Tests
 
         public ReviewRepositoryTests()
         {
-            underTest = new ReviewRepository();
+            underTest = new ReviewRepository(new  ReviewContext());
         }
 
         [Fact]
