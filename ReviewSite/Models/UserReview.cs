@@ -23,6 +23,7 @@ namespace ReviewSite.Models
         {
 
         }
+
         public UserReview(string userName, string comment, decimal rating)
         {
             UserName = userName;
