@@ -189,6 +189,14 @@ namespace ReviewSite
                         Comment = "I think we can all agree that what Kyle would do and what Kyle will do are two different things.",
                         Rating = 3.0M,
                         ReviewId = 3
+                    },
+                    new UserReview()
+                    {
+                        UserReviewId = 15,
+                        UserName = "mew101",
+                        Comment = "I'm just here for the oatmeal.",
+                        Rating = 3.0M,
+                        ReviewId = 3
                     }
                 );
 

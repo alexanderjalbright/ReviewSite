@@ -31,7 +31,7 @@
                     {
                         <i class="far fa-star fa-2x"></i>
                     }
-                    <span class="num-reviews">(@Model.UserReview.Count())</span>
+                    <span class="num-reviews">(@Model.UserReviews.Count())</span>
                 </div>
                 <div class="course-nav">
                     <a href="#">Overview</a> |
@@ -39,7 +39,7 @@
                 </div>
                 <hr />
                 <div class="course-content">
-                    @foreach (var userReview in Model.UserReview)
+                    @foreach (var userReview in Model.UserReviews)
                     {
                         <h2>Username: @userReview.UserName</h2>
                         <h3>Rating: @userReview.Rating</h3>
