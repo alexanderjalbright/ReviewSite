@@ -10,14 +10,14 @@ namespace ReviewSite.Tests
 {
     public class ReviewControllerTests
     {
-        ReviewController underTest;
+        CourseController underTest;
 
         public ReviewControllerTests()
         {
             var context = new ReviewContext();
-            var repository = new ReviewRepository(context);
+            var repository = new CourseRepository(context);
 
-            underTest = new ReviewController(repository);
+            underTest = new CourseController(repository);
         }
 
         [Fact]
@@ -33,7 +33,7 @@ namespace ReviewSite.Tests
         {
             var model = underTest.Index().Model;
 
-            Assert.IsType<List<Review>>(model);
+            Assert.IsType<List<Course>>(model);
         }
 
         [Fact]
@@ -49,7 +49,7 @@ namespace ReviewSite.Tests
         {
             var model = underTest.Details(1).Model;
 
-            Assert.IsType<Review>(model);
+            Assert.IsType<Course>(model);
         }
     }
 }

@@ -15,9 +15,9 @@ namespace ReviewSite.Models
 
         public decimal Rating { get; set; }
 
-        public int ReviewId { get; set; }
+        public int CourseId { get; set; }
 
-        public virtual Review Review { get; set; }
+        public virtual Course Course { get; set; }
 
         public UserReview()
         {

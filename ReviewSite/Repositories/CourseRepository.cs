@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ReviewSite.Repositories
 {
-    public class ReviewRepository
+    public class CourseRepository
     {
         ReviewContext db;
 
-        public ReviewRepository(ReviewContext db)
+        public CourseRepository(ReviewContext db)
         {
             this.db = db;
         } 
@@ -22,14 +22,14 @@ namespace ReviewSite.Repositories
             return count;
         }
 
-        public IEnumerable<Review> GetAll()
+        public IEnumerable<Course> GetAll()
         {
             return db.Reviews.ToList();
         }
 
-        public Review GetById(int id)
+        public Course GetById(int id)
         {            
-            return db.Reviews.Single(review => review.ReviewId == id);
+            return db.Reviews.Single(review => review.CourseId == id);
         }
     }
 }

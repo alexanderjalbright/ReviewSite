@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ReviewSite.Models
 {
-    public class Review
+    public class Course
     {
         public string Title { get; set; }
 
-        public int ReviewId { get; set; }
+        public int CourseId { get; set; }
 
         public string ImageURL { get; set; }
 
@@ -29,16 +29,16 @@ namespace ReviewSite.Models
         [NotMapped]
         public ICollection<string> TagList { get; set; }
 
-        public Review()
+        public Course()
         {
 
         }
         
         // For when a real review is made
-        public Review(string title, int id, string imageURL, string overview, string summary, List<string> taglist)
+        public Course(string title, int id, string imageURL, string overview, string summary, List<string> taglist)
         {
             Title = title;
-            ReviewId = id;
+            CourseId = id;
             ImageURL = imageURL;
             Overview = overview;
             Summary = summary;
@@ -47,10 +47,10 @@ namespace ReviewSite.Models
         }
 
         // For when testing with hard coded user reviews
-        public Review(string title, int id, string imageURL, string overview, string summary, List<string> taglist, List<UserReview> userReview)
+        public Course(string title, int id, string imageURL, string overview, string summary, List<string> taglist, List<UserReview> userReview)
         {
             Title = title;
-            ReviewId = id;
+            CourseId = id;
             ImageURL = imageURL;
             Overview = overview;
             Summary = summary;

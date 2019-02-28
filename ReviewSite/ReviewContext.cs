@@ -10,7 +10,7 @@ namespace ReviewSite
     public class ReviewContext : DbContext
     {
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Course> Reviews { get; set; }
         public DbSet<UserReview> UserReviews { get; set; }
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -39,22 +39,22 @@ namespace ReviewSite
                     }
                 );
 
-            modelBuilder.Entity<Review>().HasData
+            modelBuilder.Entity<Course>().HasData
                 (
-                    new Review()
+                    new Course()
                     {
                         Title = "Machine Learning",
-                        ReviewId = 1,
+                        CourseId = 1,
                         ImageURL = "/Images/machinelearning.jpg",
                         Overview = "Learn to use machine learning to your advantage.",
                         Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
                         TagList = new List<string>() { "C#", "Algorithms", "Machine Learning" },
                         CategoryId = 1
                     },
-                    new Review()
+                    new Course()
                     {
                         Title = "Python For Everybody",
-                        ReviewId = 2,
+                        CourseId = 2,
                         ImageURL = "/Images/pythonforeveryone.jpg",
                         Overview = "It really is for everybody!",
                         Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
@@ -62,10 +62,10 @@ namespace ReviewSite
                         CategoryId = 2
 
                     },
-                    new Review()
+                    new Course()
                     {
                         Title = "WWKD?",
-                        ReviewId = 3,
+                        CourseId = 3,
                         ImageURL = "/Images/wwkd.jpg",
                         Overview = "What would Kyle do?",
                         Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
@@ -83,7 +83,7 @@ namespace ReviewSite
                         UserName = "MoocJunkie",
                         Comment = "Its free!",
                         Rating = 3.3M,
-                        ReviewId = 1
+                        CourseId = 1
 
 
                     },
@@ -93,14 +93,14 @@ namespace ReviewSite
                         UserName = "SwagYoloFleekDabs",
                         Comment = "You get what you pay for and it's free.",
                         Rating = 4.1M,
-                        ReviewId = 1
+                        CourseId = 1
                     },
                     new UserReview() {
                         UserReviewId = 3,
                         UserName = "xXx_DragonSlayer_xXx",
                         Comment = "The instructors are racist.",
                         Rating = 3.9M,
-                        ReviewId = 1
+                        CourseId = 1
                     },
                     new UserReview()
                     {
@@ -108,7 +108,7 @@ namespace ReviewSite
                         UserName = "JoeLovesFishing_USA",
                         Comment = "The instructors love you like their own family!",
                         Rating = 4.9M,
-                        ReviewId = 2
+                        CourseId = 2
                     },
                     new UserReview()
                     {
@@ -116,7 +116,7 @@ namespace ReviewSite
                         UserName = "elDiablo1992",
                         Comment = "If I could experience Groundhog Day here, I'd still never get enough.",
                         Rating = 5.0M,
-                        ReviewId = 2
+                        CourseId = 2
                     },
                     new UserReview()
                     {
@@ -124,7 +124,7 @@ namespace ReviewSite
                         UserName = "W3CanC0d31T",
                         Comment = "This place attracts weirdos.",
                         Rating = 4.1M,
-                        ReviewId = 2
+                        CourseId = 2
                     },
                     new UserReview()
                     {
@@ -132,7 +132,7 @@ namespace ReviewSite
                         UserName = "anegronjr",
                         Comment = "I'd rather pay for college than this.",
                         Rating = 2.2M,
-                        ReviewId = 3
+                        CourseId = 3
                     },
                     new UserReview()
                     {
@@ -140,7 +140,7 @@ namespace ReviewSite
                         UserName = "alexanderjalbright",
                         Comment = "The carpets smell like urine.",
                         Rating = 1.7M,
-                        ReviewId = 3
+                        CourseId = 3
                     },
                     new UserReview()
                     {
@@ -148,7 +148,7 @@ namespace ReviewSite
                         UserName = "khanishvili",
                         Comment = "The coffee has a peculiar taste.",
                         Rating = 2.2M,
-                        ReviewId = 3
+                        CourseId = 3
                     },
                     new UserReview()
                     {
@@ -156,7 +156,7 @@ namespace ReviewSite
                         UserName = "jen3ten",
                         Comment = "PICK UP YOUR STARBUCKS CUPS!",
                         Rating = 2.3M,
-                        ReviewId = 3
+                        CourseId = 3
                     },
                     new UserReview()
                     {
@@ -164,7 +164,7 @@ namespace ReviewSite
                         UserName = "MaryMcGeary",
                         Comment = "I've learned more from 6th graders.",
                         Rating = 2.0M,
-                        ReviewId = 3
+                        CourseId = 3
                     },
                     new UserReview()
                     {
@@ -172,7 +172,7 @@ namespace ReviewSite
                         UserName = "mroyski",
                         Comment = "I can't see the board.",
                         Rating = 1.5M,
-                        ReviewId = 3
+                        CourseId = 3
                     },
                     new UserReview()
                     {
@@ -180,7 +180,7 @@ namespace ReviewSite
                         UserName = "aldenmolina",
                         Comment = "(╯°□°）╯︵ ┻━┻",
                         Rating = 3.0M,
-                        ReviewId = 3
+                        CourseId = 3
                     },
                     new UserReview()
                     {
@@ -188,7 +188,7 @@ namespace ReviewSite
                         UserName = "JoeScheiman",
                         Comment = "I think we can all agree that what Kyle would do and what Kyle will do are two different things.",
                         Rating = 3.0M,
-                        ReviewId = 3
+                        CourseId = 3
                     },
                     new UserReview()
                     {
@@ -196,7 +196,7 @@ namespace ReviewSite
                         UserName = "mew101",
                         Comment = "I'm just here for the oatmeal.",
                         Rating = 3.0M,
-                        ReviewId = 3
+                        CourseId = 3
                     }
                 );
 

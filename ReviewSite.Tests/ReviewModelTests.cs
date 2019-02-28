@@ -6,13 +6,13 @@ using Xunit;
 
 namespace ReviewSite.Tests
 {
-    public class ReviewModelTests
+    public class CourseModelTests
     {
-        Review underTest;
+        Course underTest;
 
-        public ReviewModelTests()
+        public CourseModelTests()
         {
-            underTest = new Review
+            underTest = new Course
                 (
                     "Machine Learning",
                     1,
@@ -30,7 +30,7 @@ namespace ReviewSite.Tests
         }
 
         [Fact]
-        public void Review_Has_Title()
+        public void Course_Has_Title()
         {
             string expected = "Machine Learning";
 
@@ -40,17 +40,17 @@ namespace ReviewSite.Tests
         }
 
         [Fact]
-        public void Review_Has_Id()
+        public void Course_Has_Id()
         {
             int expected = 1;
 
-            var result = underTest.ReviewId;
+            var result = underTest.CourseId;
 
             Assert.Equal(expected, result);
         }
 
         [Fact]
-        public void Review_Has_Image_URL()
+        public void Course_Has_Image_URL()
         {
             string expected = "/Images/machinelearning.jpg";
 
@@ -60,7 +60,7 @@ namespace ReviewSite.Tests
         }
 
         [Fact]
-        public void Review_Has_Overview()
+        public void Course_Has_Overview()
         {
             string expected = "Learn to use machine learning to your advantage.";
 
@@ -70,7 +70,7 @@ namespace ReviewSite.Tests
         }
 
         [Fact]
-        public void Review_Has_Summary()
+        public void Course_Has_Summary()
         {
             string expected = "Learn Machine learning.";
 
@@ -80,7 +80,7 @@ namespace ReviewSite.Tests
         }
 
         //[Fact]
-        //public void Review_Has_User_Opinion_List()
+        //public void Course_Has_User_Opinion_List()
         //{
         //    var result = underTest.UserOpinionList;
 
@@ -88,7 +88,7 @@ namespace ReviewSite.Tests
         //}
 
         [Fact]
-        public void Review_Has_Tags()
+        public void Course_Has_Tags()
         {
             var result = underTest.TagList;
 
@@ -96,7 +96,7 @@ namespace ReviewSite.Tests
         }
 
         [Fact]
-        public void Review_Has_Average_Rating()
+        public void Course_Has_Average_Rating()
         {
             var result = underTest.AverageRating();
 
@@ -106,7 +106,7 @@ namespace ReviewSite.Tests
         }
 
         [Fact]
-        public void Review_Calculates_Solid_Stars()
+        public void Course_Calculates_Solid_Stars()
         {
             var result = underTest.SolidStars();
             int expected = 3;
@@ -115,7 +115,7 @@ namespace ReviewSite.Tests
         }
 
         [Fact]
-        public void Review_Calculates_Half_Stars()
+        public void Course_Calculates_Half_Stars()
         {
             var result = underTest.HalfStars();
             int expected = 1;
@@ -124,7 +124,7 @@ namespace ReviewSite.Tests
         }
 
         [Fact]
-        public void Review_Calculates_Empty_Stars()
+        public void Course_Calculates_Empty_Stars()
         {
             var result = underTest.EmptyStars();
             int expected = 1;

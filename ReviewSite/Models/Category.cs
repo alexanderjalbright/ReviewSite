@@ -11,6 +11,6 @@ namespace ReviewSite.Models
 
         public string Name { get; set; }
 
-        public virtual IEnumerable<Review> Reviews { get; set; }
+        public virtual IEnumerable<Course> Reviews { get; set; }
     }
 }
