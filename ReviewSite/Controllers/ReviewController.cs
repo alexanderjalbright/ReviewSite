@@ -7,10 +7,10 @@ using ReviewSite.Repositories;
 
 namespace ReviewSite.Controllers
 {
-    public class ReviewController : Controller
+    public class CourseController : Controller
     {
-        ReviewRepository repo;
-        public ReviewController(ReviewRepository repo)
+        CourseRepository repo;
+        public CourseController(CourseRepository repo)
         {
             this.repo = repo;
         }

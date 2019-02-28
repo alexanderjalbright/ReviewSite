@@ -21,10 +21,10 @@ namespace ReviewSite
 
             services.AddDbContext<ReviewContext>();
 
-            services.AddScoped<ReviewRepository, ReviewRepository>();
+            services.AddScoped<CourseRepository, CourseRepository>();
             services.AddScoped<CategoryRepository, CategoryRepository>();
 
-            services.AddScoped<ReviewController, ReviewController>();
+            services.AddScoped<CourseController, CourseController>();
             services.AddScoped<CategoryController, CategoryController>();
         }
 

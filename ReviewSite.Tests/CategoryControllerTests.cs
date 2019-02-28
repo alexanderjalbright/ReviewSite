@@ -17,8 +17,8 @@ namespace ReviewSite.Tests
         {
             var context = new ReviewContext();
             var categoryRepo = new CategoryRepository(context);
-            var reviewRepo = new ReviewRepository(context);
-            var reviewCont = new ReviewController(reviewRepo);
+            var reviewRepo = new CourseRepository(context);
+            var reviewCont = new CourseController(reviewRepo);
 
             underTest = new CategoryController(categoryRepo, reviewCont);
         }

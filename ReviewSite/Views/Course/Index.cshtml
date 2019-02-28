@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ReviewSite.Models.Review>
+﻿@model IEnumerable<ReviewSite.Models.Course>
 
 @{
     Layout = null;
@@ -45,7 +45,7 @@
                                 }
                                 <span class="num-reviews">(@review.UserReviews.Count())</span>
                             </div>
-                            <a href="/Review/Details/@review.ReviewId"><div class="review-card-button">Details</div></a>
+                            <a href="/Course/Details/@review.CourseId"><div class="review-card-button">Details</div></a>
                         </div>
                     </div>
                 </div>

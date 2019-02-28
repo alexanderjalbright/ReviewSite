@@ -11,8 +11,8 @@ namespace ReviewSite.Controllers
     {
         
         CategoryRepository repo;
-        ReviewController controller;
-        public CategoryController(CategoryRepository repo, ReviewController controller)
+        CourseController controller;
+        public CategoryController(CategoryRepository repo, CourseController controller)
         {
             this.repo = repo;
             this.controller = controller;
