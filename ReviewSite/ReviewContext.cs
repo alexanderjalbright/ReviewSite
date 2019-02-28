@@ -12,7 +12,7 @@ namespace ReviewSite
         public DbSet<Category> Categories { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<UserReview> UserReviews { get; set; }
-
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString = "Server=(localdb)\\mssqllocaldb;Database=nbnReviewSite;Trusted_Connection=True;";
@@ -30,17 +30,12 @@ namespace ReviewSite
                     new Category()
                     {
                         CategoryId = 1,
-                        Name = "Machine Learning"
+                        Name = "C#"
                     },
                     new Category()
                     {
                         CategoryId = 2,
                         Name = "Python"
-                    },
-                    new Category()
-                    {
-                        CategoryId = 3,
-                        Name = "C#"
                     }
                 );
 
@@ -75,7 +70,7 @@ namespace ReviewSite
                         Overview = "What would Kyle do?",
                         Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
                         TagList = new List<string>() { "C#", "ASP.NET", "MVC" },
-                        CategoryId = 3
+                        CategoryId = 1
                     }
                 );
 
@@ -135,7 +130,7 @@ namespace ReviewSite
                     {
                         UserReviewId = 7,
                         UserName = "anegronjr",
-                        Comment = "Its so close!",
+                        Comment = "I'd rather pay for college than this.",
                         Rating = 2.2M,
                         ReviewId = 3
                     },
@@ -159,7 +154,7 @@ namespace ReviewSite
                     {
                         UserReviewId = 10,
                         UserName = "jen3ten",
-                        Comment = "The coffee has a peculiar taste.",
+                        Comment = "PICK UP YOUR STARBUCKS CUPS!",
                         Rating = 2.3M,
                         ReviewId = 3
                     },
@@ -167,7 +162,7 @@ namespace ReviewSite
                     {
                         UserReviewId = 11,
                         UserName = "MaryMcGeary",
-                        Comment = "The coffee has a peculiar taste.",
+                        Comment = "I've learned more from 6th graders.",
                         Rating = 2.0M,
                         ReviewId = 3
                     },
@@ -175,7 +170,7 @@ namespace ReviewSite
                     {
                         UserReviewId = 12,
                         UserName = "mroyski",
-                        Comment = "The coffee has a peculiar taste.",
+                        Comment = "I can't see the board.",
                         Rating = 1.5M,
                         ReviewId = 3
                     },
@@ -183,7 +178,7 @@ namespace ReviewSite
                     {
                         UserReviewId = 13,
                         UserName = "aldenmolina",
-                        Comment = "The coffee has a peculiar taste.",
+                        Comment = "(╯°□°）╯︵ ┻━┻",
                         Rating = 3.0M,
                         ReviewId = 3
                     },
@@ -191,7 +186,15 @@ namespace ReviewSite
                     {
                         UserReviewId = 14,
                         UserName = "JoeScheiman",
-                        Comment = "The coffee has a peculiar taste.",
+                        Comment = "I think we can all agree that what Kyle would do and what Kyle will do are two different things.",
+                        Rating = 3.0M,
+                        ReviewId = 3
+                    },
+                    new UserReview()
+                    {
+                        UserReviewId = 15,
+                        UserName = "mew101",
+                        Comment = "I'm just here for the oatmeal.",
                         Rating = 3.0M,
                         ReviewId = 3
                     }

@@ -1,0 +1,49 @@
+﻿@model ReviewSite.Models.Category
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Details.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Ubuntu" rel="stylesheet">
+    <title>Details</title>
+</head>
+<body>
+    <div class="container">
+        <header></header>A
+        <main>
+            <div class="content">
+                <h1 class="course-title">@Model.Name</h1>
+                
+                <div class="course-nav">
+                    <a href="#">Definition</a> |
+                    <a href="#">Courses</a>
+                </div>
+                <hr />
+                <div class="course-content">
+                    @foreach (var review in Model.Reviews)
+                    {
+                        <h2>@review.Title</h2>
+                        <h3>Rating: @review.AverageRating()</h3>
+                        <img class="post-img" src="@review.ImageURL" />
+                        <a href="/Review/Details/@review.ReviewId">Details</a>
+                        <br /><br />
+                    }
+                </div>
+            </div>
+            <aside>
+                <a href="/Category">All Categories</a>
+                    <div class="post-details">
+
+                    </div>
+</aside>
+        </main>
+        <footer></footer>
+    </div>
+</body>
+</html>
+

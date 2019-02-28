@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ReviewSite.Models.Category>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Categories Index</title>
+    <link href="~/Main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Ubuntu" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header></header>
+        <main>
+            <section class="reviews">
+                @foreach (var category in Model)
+                {
+                    <div class="review-card">
+                        <div class="review-card-content">
+                            <h2 class="review-card-title">@category.Name</h2>
+                            <div class="review-card-footer">
+                                
+                                <a href="/Category/Details/@category.CategoryId"><div class="review-card-button">Details</div></a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </section>
+            <aside>
+                <h1>All Courses</h1>
+                <a href="/Review">
+                    <div class="sort-box">
+                        <p>Home</p>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+                <div class="sort-box">
+                    <p>By Rating</p><i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="sort-box">
+                    <p>By Provider</p><i class="fas fa-chevron-right"></i>
+                </div>
+            </aside>
+        </main>
+        <footer></footer>
+    </div>
+</body>
+</html>

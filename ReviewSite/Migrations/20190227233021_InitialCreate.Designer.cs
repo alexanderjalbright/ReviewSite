@@ -9,8 +9,8 @@ using ReviewSite;
 namespace ReviewSite.Migrations
 {
     [DbContext(typeof(ReviewContext))]
-    [Migration("20190227204028_Category")]
-    partial class Category
+    [Migration("20190227233021_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,9 +33,8 @@ namespace ReviewSite.Migrations
                     b.ToTable("Categories");
 
                     b.HasData(
-                        new { CategoryId = 1, Name = "Machine Learning" },
-                        new { CategoryId = 2, Name = "Python" },
-                        new { CategoryId = 3, Name = "C#" }
+                        new { CategoryId = 1, Name = "C#" },
+                        new { CategoryId = 2, Name = "Python" }
                     );
                 });
 
@@ -66,7 +65,7 @@ namespace ReviewSite.Migrations
                     b.HasData(
                         new { ReviewId = 1, CategoryId = 1, ImageURL = "/Images/machinelearning.jpg", Overview = "Learn to use machine learning to your advantage.", Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", Title = "Machine Learning" },
                         new { ReviewId = 2, CategoryId = 2, ImageURL = "/Images/pythonforeveryone.jpg", Overview = "It really is for everybody!", Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", Title = "Python For Everybody" },
-                        new { ReviewId = 3, CategoryId = 3, ImageURL = "/Images/wwkd.jpg", Overview = "What would Kyle do?", Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", Title = "WWKD?" }
+                        new { ReviewId = 3, CategoryId = 1, ImageURL = "/Images/wwkd.jpg", Overview = "What would Kyle do?", Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", Title = "WWKD?" }
                     );
                 });
 

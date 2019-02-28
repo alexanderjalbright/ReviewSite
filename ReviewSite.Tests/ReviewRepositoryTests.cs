@@ -14,7 +14,9 @@ namespace ReviewSite.Tests
 
         public ReviewRepositoryTests()
         {
-            underTest = new ReviewRepository(new ReviewContext());
+            var context = new ReviewContext();
+
+            underTest = new ReviewRepository(context);
         }
 
         [Fact]

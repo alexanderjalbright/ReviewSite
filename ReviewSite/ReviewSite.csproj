@@ -13,8 +13,6 @@
 
   <ItemGroup>
     <Compile Remove="Controllers\ReviewsController.cs" />
-    <Compile Remove="Migrations\20190227203808_Category.cs" />
-    <Compile Remove="Migrations\20190227203808_Category.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

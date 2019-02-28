@@ -20,7 +20,7 @@ namespace ReviewSite.Models
 
         public string AvgRating { get; set; }
 
-        public virtual IEnumerable<UserReview> UserReview { get; set; }
+        public virtual IEnumerable<UserReview> UserReviews { get; set; }
 
         public int CategoryId { get; set; }
 
@@ -43,7 +43,7 @@ namespace ReviewSite.Models
             Overview = overview;
             Summary = summary;
             TagList = taglist;
-            UserReview = new List<UserReview>();
+            UserReviews = new List<UserReview>();
         }
 
         // For when testing with hard coded user reviews
@@ -54,19 +54,19 @@ namespace ReviewSite.Models
             ImageURL = imageURL;
             Overview = overview;
             Summary = summary;
-            UserReview = userReview;
+            UserReviews = userReview;
             TagList = taglist;
         }
 
         public decimal AverageRating()
         {
             decimal totalRating = 0M;
-            foreach (UserReview review in UserReview)
+            foreach (UserReview review in UserReviews)
             {
                 totalRating += review.Rating;
             }
 
-            decimal avgRating = totalRating / UserReview.Count();
+            decimal avgRating = totalRating / UserReviews.Count();
 
             decimal roundedAvgRating = Math.Round(avgRating, 1);
 

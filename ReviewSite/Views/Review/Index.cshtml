@@ -43,7 +43,7 @@
                                 {
                                     <i class="far fa-star fa-2x"></i>
                                 }
-                                <span class="num-reviews">(@review.UserReview.Count())</span>
+                                <span class="num-reviews">(@review.UserReviews.Count())</span>
                             </div>
                             <a href="/Review/Details/@review.ReviewId"><div class="review-card-button">Details</div></a>
                         </div>
@@ -53,9 +53,11 @@
             </section>
             <aside>
                 <h1>All Courses</h1>
-                <div class="sort-box">
-                    <p>By Subject</p><i class="fas fa-chevron-right"></i>
-                </div>
+                <a href="/Category">
+                    <div class="sort-box">
+                        <p>By Category</p><i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
                 <div class="sort-box">
                     <p>By Rating</p><i class="fas fa-chevron-right"></i>
                 </div>

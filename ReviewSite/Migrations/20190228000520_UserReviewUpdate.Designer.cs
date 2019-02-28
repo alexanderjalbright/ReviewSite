@@ -9,8 +9,8 @@ using ReviewSite;
 namespace ReviewSite.Migrations
 {
     [DbContext(typeof(ReviewContext))]
-    [Migration("20190227200407_UserReview")]
-    partial class UserReview
+    [Migration("20190228000520_UserReviewUpdate")]
+    partial class UserReviewUpdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,24 @@ namespace ReviewSite.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("ReviewSite.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("CategoryId");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new { CategoryId = 1, Name = "C#" },
+                        new { CategoryId = 2, Name = "Python" }
+                    );
+                });
+
             modelBuilder.Entity("ReviewSite.Models.Review", b =>
                 {
                     b.Property<int>("ReviewId")
@@ -28,7 +46,7 @@ namespace ReviewSite.Migrations
 
                     b.Property<string>("AvgRating");
 
-                    b.Property<string>("Category");
+                    b.Property<int>("CategoryId");
 
                     b.Property<string>("ImageURL");
 
@@ -40,12 +58,14 @@ namespace ReviewSite.Migrations
 
                     b.HasKey("ReviewId");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Reviews");
 
                     b.HasData(
-                        new { ReviewId = 1, Category = "Algorithms", ImageURL = "/Images/machinelearning.jpg", Overview = "Learn to use machine learning to your advantage.", Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", Title = "Machine Learning" },
-                        new { ReviewId = 2, Category = "Python", ImageURL = "/Images/pythonforeveryone.jpg", Overview = "It really is for everybody!", Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", Title = "Python For Everybody" },
-                        new { ReviewId = 3, Category = "What would Kyle do?", ImageURL = "/Images/wwkd.jpg", Overview = "It's definitely not for everybody!", Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", Title = "WWKD?" }
+                        new { ReviewId = 1, CategoryId = 1, ImageURL = "/Images/machinelearning.jpg", Overview = "Learn to use machine learning to your advantage.", Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", Title = "Machine Learning" },
+                        new { ReviewId = 2, CategoryId = 2, ImageURL = "/Images/pythonforeveryone.jpg", Overview = "It really is for everybody!", Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", Title = "Python For Everybody" },
+                        new { ReviewId = 3, CategoryId = 1, ImageURL = "/Images/wwkd.jpg", Overview = "What would Kyle do?", Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", Title = "WWKD?" }
                     );
                 });
 
@@ -76,15 +96,23 @@ namespace ReviewSite.Migrations
                         new { UserReviewId = 4, Comment = "The instructors love you like their own family!", Rating = 4.9m, ReviewId = 2, UserName = "JoeLovesFishing_USA" },
                         new { UserReviewId = 5, Comment = "If I could experience Groundhog Day here, I'd still never get enough.", Rating = 5.0m, ReviewId = 2, UserName = "elDiablo1992" },
                         new { UserReviewId = 6, Comment = "This place attracts weirdos.", Rating = 4.1m, ReviewId = 2, UserName = "W3CanC0d31T" },
-                        new { UserReviewId = 7, Comment = "Its so close!", Rating = 2.2m, ReviewId = 3, UserName = "anegronjr" },
+                        new { UserReviewId = 7, Comment = "I'd rather pay for college than this.", Rating = 2.2m, ReviewId = 3, UserName = "anegronjr" },
                         new { UserReviewId = 8, Comment = "The carpets smell like urine.", Rating = 1.7m, ReviewId = 3, UserName = "alexanderjalbright" },
                         new { UserReviewId = 9, Comment = "The coffee has a peculiar taste.", Rating = 2.2m, ReviewId = 3, UserName = "khanishvili" },
-                        new { UserReviewId = 10, Comment = "The coffee has a peculiar taste.", Rating = 2.3m, ReviewId = 3, UserName = "jen3ten" },
-                        new { UserReviewId = 11, Comment = "The coffee has a peculiar taste.", Rating = 2.0m, ReviewId = 3, UserName = "MaryMcGeary" },
-                        new { UserReviewId = 12, Comment = "The coffee has a peculiar taste.", Rating = 1.5m, ReviewId = 3, UserName = "mroyski" },
-                        new { UserReviewId = 13, Comment = "The coffee has a peculiar taste.", Rating = 3.0m, ReviewId = 3, UserName = "aldenmolina" },
-                        new { UserReviewId = 14, Comment = "The coffee has a peculiar taste.", Rating = 3.0m, ReviewId = 3, UserName = "JoeScheiman" }
+                        new { UserReviewId = 10, Comment = "PICK UP YOUR STARBUCKS CUPS!", Rating = 2.3m, ReviewId = 3, UserName = "jen3ten" },
+                        new { UserReviewId = 11, Comment = "I've learned more from 6th graders.", Rating = 2.0m, ReviewId = 3, UserName = "MaryMcGeary" },
+                        new { UserReviewId = 12, Comment = "I can't see the board.", Rating = 1.5m, ReviewId = 3, UserName = "mroyski" },
+                        new { UserReviewId = 13, Comment = "(╯°□°）╯︵ ┻━┻", Rating = 3.0m, ReviewId = 3, UserName = "aldenmolina" },
+                        new { UserReviewId = 14, Comment = "I think we can all agree that what Kyle would do and what Kyle will do are two different things.", Rating = 3.0m, ReviewId = 3, UserName = "JoeScheiman" }
                     );
+                });
+
+            modelBuilder.Entity("ReviewSite.Models.Review", b =>
+                {
+                    b.HasOne("ReviewSite.Models.Category", "Category")
+                        .WithMany("Reviews")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ReviewSite.Models.UserReview", b =>

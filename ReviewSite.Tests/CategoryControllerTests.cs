@@ -3,21 +3,24 @@ using Microsoft.EntityFrameworkCore;
 using ReviewSite.Controllers;
 using ReviewSite.Models;
 using ReviewSite.Repositories;
+using System;
 using System.Collections.Generic;
+using System.Text;
 using Xunit;
 
 namespace ReviewSite.Tests
 {
-    public class ReviewControllerTests
+    public class CategoryControllerTests
     {
-        ReviewController underTest;
-
-        public ReviewControllerTests()
+        CategoryController underTest;
+        public CategoryControllerTests()
         {
             var context = new ReviewContext();
-            var repository = new ReviewRepository(context);
+            var categoryRepo = new CategoryRepository(context);
+            var reviewRepo = new ReviewRepository(context);
+            var reviewCont = new ReviewController(reviewRepo);
 
-            underTest = new ReviewController(repository);
+            underTest = new CategoryController(categoryRepo, reviewCont);
         }
 
         [Fact]
@@ -33,7 +36,7 @@ namespace ReviewSite.Tests
         {
             var model = underTest.Index().Model;
 
-            Assert.IsType<List<Review>>(model);
+            Assert.IsType<List<Category>>(model);
         }
 
         [Fact]
@@ -49,7 +52,7 @@ namespace ReviewSite.Tests
         {
             var model = underTest.Details(1).Model;
 
-            Assert.IsType<Review>(model);
+            Assert.IsType<Category>(model);
         }
     }
 }
