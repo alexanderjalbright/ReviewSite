@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -14,15 +14,6 @@ html {
 }
 
 .container {
-    /*margin: 2rem;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto;
-    border: 1px green solid;
-    grid-gap: 2em;
-   
-    flex-wrap: wrap;*/
-
     display: grid;
     grid-template-rows: 20rem 1fr 10rem;
     max-width: 1920px;
@@ -67,11 +58,11 @@ main {
     font-size: 4rem;
 }
 
-.course-nav a{
-    color: #555;
-    letter-spacing: 2px;
-    margin: 0 2rem;
-}
+    .course-nav a {
+        color: #555;
+        letter-spacing: 2px;
+        margin: 0 2rem;
+    }
 
 .course-content {
     padding: 3rem;
@@ -88,6 +79,7 @@ aside {
     display: flex;
     flex-direction: column;
     width: 70rem;
+    align-self: flex-start;
     padding: 1rem 1rem;
     margin: 2rem;
     flex-shrink: 0;
@@ -106,11 +98,51 @@ aside {
     color: #222;
 }
 
-.post-details p {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
+    .post-details p {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .post-details span {
+        font-weight: bold;
+    }
+
+.user-review-card {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 7rem;
 }
 
-.post-details span {
-    font-weight: bold;
+.user-review-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.user-review-img {
+    height: 8rem;
+    width: 8rem;
+}
+
+.name-rating {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 2rem;
+}
+
+.user-review-name {
+    font-size: 1.7rem;
+    color: #444;
+}
+
+.user-review-rating {
+    font-size: 1.5rem;
+    color: gold;
+}
+
+.user-review-comment {
+    margin-top: 1rem;
+    margin-left: 10rem;
 }

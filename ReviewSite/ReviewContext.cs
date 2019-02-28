@@ -12,7 +12,7 @@ namespace ReviewSite
         public DbSet<Category> Categories { get; set; }
         public DbSet<Course> Reviews { get; set; }
         public DbSet<UserReview> UserReviews { get; set; }
-        
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString = "Server=(localdb)\\mssqllocaldb;Database=nbnReviewSite;Trusted_Connection=True;";
@@ -95,7 +95,8 @@ namespace ReviewSite
                         Rating = 4.1M,
                         CourseId = 1
                     },
-                    new UserReview() {
+                    new UserReview()
+                    {
                         UserReviewId = 3,
                         UserName = "xXx_DragonSlayer_xXx",
                         Comment = "The instructors are racist.",
@@ -201,8 +202,8 @@ namespace ReviewSite
                 );
 
             base.OnModelCreating(modelBuilder);
-            
-                
+
+
         }
     }
 }

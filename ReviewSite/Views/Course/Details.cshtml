@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="container">
-        <header></header>A
+        <header></header>
         <main>
             <div class="content">
                 <h1 class="course-title">@Model.Title</h1>
@@ -41,13 +41,33 @@
                 <div class="course-content">
                     @foreach (var userReview in Model.UserReviews)
                     {
-                        <h2>Username: @userReview.UserName</h2>
-                        <h3>Rating: @userReview.Rating</h3>
-                        <p>"@userReview.Comment"</p>
-                        <br /><br />
+                        <div class="user-review-card">
+                            <div class="user-review-header">
+                                <img class="user-review-img" src="~/Images/useravatar.png" />
+                                <div class="name-rating">
+                                    <span class="user-review-name">@userReview.UserName</span>
+                                    <div class="user-review-rating">
+                                        @for (int i = 0; i < userReview.SolidStars(); i++)
+                                        {
+                                            <i class="fas fa-star"></i>
+                                        }
+                                        @for (int i = 0; i < userReview.HalfStars(); i++)
+                                        {
+                                            <i class="fas fa-star-half-alt"></i>
+                                        }
+                                        @for (int i = 0; i < userReview.EmptyStars(); i++)
+                                        {
+                                            <i class="far fa-star"></i>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="user-review-comment">@userReview.Comment</p>
+                        </div>
                     }
                 </div>
             </div>
+
             <aside>
                 <img class="post-img" src="@Model.ImageURL" />
                 <div class="post-details">
@@ -63,4 +83,3 @@
 </body>
 </html>
 
- 

@@ -36,15 +36,15 @@ aside {
     flex-direction: column;
     align-items: center;
     padding: 3rem 1rem;
-    
     width: 40rem;
+    align-self: flex-start;
 }
 
-aside h1 {
-    color: #444;
-    font-size: 3rem;
-    margin-bottom: 2rem;
-}
+    aside h1 {
+        color: #444;
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
 
 .sort-box {
     display: flex;
@@ -61,14 +61,16 @@ aside h1 {
     font-size: 1.5rem;
 }
 
-.sort-box p {
-    color: #3988ca;
-    font-weight: bold;
-}
+    .sort-box p {
+        color: #3988ca;
+        font-weight: bold;
+    }
 
-.sort-box i {
-    color: #555;
-}
+    .sort-box i {
+        color: #555;
+    }
+
+
 
 .reviews {
     display: grid;
@@ -76,7 +78,6 @@ aside h1 {
     justify-content: center;
     grid-gap: 4rem;
     padding: 3rem 0rem;
-
     flex-grow: 1;
 }
 

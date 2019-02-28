@@ -25,7 +25,7 @@
                 </div>
                 <hr />
                 <div class="course-content">
-                    @foreach (var review in Model.Reviews)
+                    @foreach (var review in Model.Courses)
                     {
                         <h2>@review.Title</h2>
                         <h3>Rating: @review.AverageRating()</h3>
