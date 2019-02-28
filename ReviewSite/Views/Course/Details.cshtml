@@ -11,6 +11,17 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Ubuntu" rel="stylesheet">
     <title>Details</title>
+
+    <script type="text/javascript">
+        function SwapDivsWithClick(div1, div2) {
+            d1 = document.getElementById(div1);
+            d2 = document.getElementById(div2);
+
+                d1.style.display = "none";
+                d2.style.display = "block";
+        }
+    </script>
+
 </head>
 <body>
     <div class="container">
@@ -34,37 +45,45 @@
                     <span class="num-reviews">(@Model.UserReviews.Count())</span>
                 </div>
                 <div class="course-nav">
-                    <a href="#">Overview</a> |
-                    <a href="#">Reviews</a>
+                    <a href="#" onclick="SwapDivsWithClick('course-user-reviews','course-overview');">Overview</a> |
+                    <a href="#" onclick="SwapDivsWithClick('course-overview','course-user-reviews');">Reviews</a>
                 </div>
                 <hr />
                 <div class="course-content">
-                    @foreach (var userReview in Model.UserReviews)
-                    {
-                        <div class="user-review-card">
-                            <div class="user-review-header">
-                                <img class="user-review-img" src="~/Images/useravatar.png" />
-                                <div class="name-rating">
-                                    <span class="user-review-name">@userReview.UserName</span>
-                                    <div class="user-review-rating">
-                                        @for (int i = 0; i < userReview.SolidStars(); i++)
-                                        {
-                                            <i class="fas fa-star"></i>
-                                        }
-                                        @for (int i = 0; i < userReview.HalfStars(); i++)
-                                        {
-                                            <i class="fas fa-star-half-alt"></i>
-                                        }
-                                        @for (int i = 0; i < userReview.EmptyStars(); i++)
-                                        {
-                                            <i class="far fa-star"></i>
-                                        }
+                    <div class="course-overview" id="course-overview">
+                        <p>
+                            @Model.Overview
+                        </p>
+                    </div>
+                    <div class="course-user-reviews" id="course-user-reviews">
+                        @foreach (var userReview in Model.UserReviews)
+                        {
+                            <div class="user-review-card">
+                                <div class="user-review-header">
+                                    <img class="user-review-img" src="~/Images/useravatar.png" />
+                                    <div class="name-rating">
+                                        <span class="user-review-name">@userReview.UserName</span>
+                                        <div class="user-review-rating">
+                                            @for (int i = 0; i < userReview.SolidStars(); i++)
+                                            {
+                                                <i class="fas fa-star"></i>
+                                            }
+                                            @for (int i = 0; i < userReview.HalfStars(); i++)
+                                            {
+                                                <i class="fas fa-star-half-alt"></i>
+                                            }
+                                            @for (int i = 0; i < userReview.EmptyStars(); i++)
+                                            {
+                                                <i class="far fa-star"></i>
+                                            }
+                                        </div>
                                     </div>
                                 </div>
+                                <p class="user-review-comment">@userReview.Comment</p>
                             </div>
-                            <p class="user-review-comment">@userReview.Comment</p>
-                        </div>
-                    }
+                        }
+                    </div>
+
                 </div>
             </div>
 
