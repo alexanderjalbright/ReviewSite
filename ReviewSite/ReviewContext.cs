@@ -130,7 +130,7 @@ namespace ReviewSite
                     {
                         UserReviewId = 7,
                         UserName = "anegronjr",
-                        Comment = "Its so close!",
+                        Comment = "I'd rather pay for college than this.",
                         Rating = 2.2M,
                         ReviewId = 3
                     },
@@ -154,7 +154,7 @@ namespace ReviewSite
                     {
                         UserReviewId = 10,
                         UserName = "jen3ten",
-                        Comment = "The coffee has a peculiar taste.",
+                        Comment = "PICK UP YOUR STARBUCKS CUPS!",
                         Rating = 2.3M,
                         ReviewId = 3
                     },
@@ -162,7 +162,7 @@ namespace ReviewSite
                     {
                         UserReviewId = 11,
                         UserName = "MaryMcGeary",
-                        Comment = "The coffee has a peculiar taste.",
+                        Comment = "I've learned more from 6th graders.",
                         Rating = 2.0M,
                         ReviewId = 3
                     },
@@ -170,7 +170,7 @@ namespace ReviewSite
                     {
                         UserReviewId = 12,
                         UserName = "mroyski",
-                        Comment = "The coffee has a peculiar taste.",
+                        Comment = "I can't see the board.",
                         Rating = 1.5M,
                         ReviewId = 3
                     },
@@ -178,7 +178,7 @@ namespace ReviewSite
                     {
                         UserReviewId = 13,
                         UserName = "aldenmolina",
-                        Comment = "The coffee has a peculiar taste.",
+                        Comment = "(╯°□°）╯︵ ┻━┻",
                         Rating = 3.0M,
                         ReviewId = 3
                     },
@@ -186,7 +186,7 @@ namespace ReviewSite
                     {
                         UserReviewId = 14,
                         UserName = "JoeScheiman",
-                        Comment = "The coffee has a peculiar taste.",
+                        Comment = "I think we can all agree that what Kyle would do and what Kyle will do are two different things.",
                         Rating = 3.0M,
                         ReviewId = 3
                     }

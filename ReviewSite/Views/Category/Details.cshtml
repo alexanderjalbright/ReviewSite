@@ -30,15 +30,17 @@
                         <h2>@review.Title</h2>
                         <h3>Rating: @review.AverageRating()</h3>
                         <img class="post-img" src="@review.ImageURL" />
+                        <a href="/Review/Details/@review.ReviewId">Details</a>
+                        <br /><br />
                     }
                 </div>
             </div>
             <aside>
-                
-                <div class="post-details">
-                    
-                </div>
-            </aside>
+                <a href="/Category">All Categories</a>
+                    <div class="post-details">
+
+                    </div>
+</aside>
         </main>
         <footer></footer>
     </div>

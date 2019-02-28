@@ -29,10 +29,5 @@ namespace ReviewSite.Controllers
             var model = repo.GetById(id);
             return View(model);
         }
-
-        public void Review(int id)
-        {
-            controller.Details(id);
-        }
     }
 }
