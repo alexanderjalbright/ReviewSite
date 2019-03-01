@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReviewSite;
 
 namespace ReviewSite.Migrations
 {
     [DbContext(typeof(ReviewContext))]
-    partial class ReviewContextModelSnapshot : ModelSnapshot
+    [Migration("20190301154527_CategoryDescription")]
+    partial class CategoryDescription
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,13 +50,9 @@ namespace ReviewSite.Migrations
 
                     b.Property<int>("CategoryId");
 
-                    b.Property<string>("Duration");
-
                     b.Property<string>("ImageURL");
 
                     b.Property<string>("Overview");
-
-                    b.Property<string>("StartDate");
 
                     b.Property<string>("Summary");
 
@@ -67,9 +65,9 @@ namespace ReviewSite.Migrations
                     b.ToTable("Reviews");
 
                     b.HasData(
-                        new { CourseId = 1, CategoryId = 1, Duration = "16 Weeks", ImageURL = "/Images/machinelearning.jpg", Overview = "Learn to use machine learning to your advantage.", StartDate = "August 2nd, 2019", Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", Title = "Machine Learning" },
-                        new { CourseId = 2, CategoryId = 2, Duration = "12 Weeks", ImageURL = "/Images/pythonforeveryone.jpg", Overview = "It really is for everybody!", StartDate = "August 3rd, 2019", Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", Title = "Python For Everybody" },
-                        new { CourseId = 3, CategoryId = 1, Duration = "14 Weeks", ImageURL = "/Images/wwkd.jpg", Overview = "What would Kyle do?", StartDate = "August 4th, 2019", Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", Title = "WWKD?" }
+                        new { CourseId = 1, CategoryId = 1, ImageURL = "/Images/machinelearning.jpg", Overview = "Learn to use machine learning to your advantage.", Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", Title = "Machine Learning" },
+                        new { CourseId = 2, CategoryId = 2, ImageURL = "/Images/pythonforeveryone.jpg", Overview = "It really is for everybody!", Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", Title = "Python For Everybody" },
+                        new { CourseId = 3, CategoryId = 1, ImageURL = "/Images/wwkd.jpg", Overview = "What would Kyle do?", Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", Title = "WWKD?" }
                     );
                 });
 
