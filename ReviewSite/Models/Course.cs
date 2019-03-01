@@ -20,6 +20,10 @@ namespace ReviewSite.Models
 
         public string AvgRating { get; set; }
 
+        public string StartDate { get; set; }
+
+        public string Duration { get; set; }
+
         public virtual IEnumerable<UserReview> UserReviews { get; set; }
 
         public int CategoryId { get; set; }

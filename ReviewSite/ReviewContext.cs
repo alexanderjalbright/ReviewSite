@@ -30,12 +30,14 @@ namespace ReviewSite
                     new Category()
                     {
                         CategoryId = 1,
-                        Name = "C#"
+                        Name = "C#",
+                        Description = "C# is a Microsoft coding language."
                     },
                     new Category()
                     {
                         CategoryId = 2,
-                        Name = "Python"
+                        Name = "Python",
+                        Description = "Python is, well, Python."
                     }
                 );
 
@@ -48,6 +50,8 @@ namespace ReviewSite
                         ImageURL = "/Images/machinelearning.jpg",
                         Overview = "Learn to use machine learning to your advantage.",
                         Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+                        StartDate = "August 2nd, 2019",
+                        Duration = "16 Weeks",
                         TagList = new List<string>() { "C#", "Algorithms", "Machine Learning" },
                         CategoryId = 1
                     },
@@ -58,6 +62,8 @@ namespace ReviewSite
                         ImageURL = "/Images/pythonforeveryone.jpg",
                         Overview = "It really is for everybody!",
                         Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+                        StartDate = "August 3rd, 2019",
+                        Duration = "12 Weeks",
                         TagList = new List<string>() { "Python", "Algorithms", "Coding" },
                         CategoryId = 2
 
@@ -69,6 +75,8 @@ namespace ReviewSite
                         ImageURL = "/Images/wwkd.jpg",
                         Overview = "What would Kyle do?",
                         Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+                        StartDate = "August 4th, 2019",
+                        Duration = "14 Weeks",
                         TagList = new List<string>() { "C#", "ASP.NET", "MVC" },
                         CategoryId = 1
                     }
