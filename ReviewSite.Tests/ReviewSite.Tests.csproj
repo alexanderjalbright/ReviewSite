@@ -7,6 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ReviewControllerTests.cs" />
+    <Compile Remove="ReviewModelTests.cs" />
+    <Compile Remove="ReviewRepositoryTests.cs" />
     <Compile Remove="ReviewsControllerTests.cs" />
   </ItemGroup>
 

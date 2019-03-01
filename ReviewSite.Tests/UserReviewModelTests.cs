@@ -12,7 +12,7 @@ namespace ReviewSite.Tests
 
         public UserReviewModelTests()
         {
-            underTest = new UserReview("MoocJunkie", "Its free!", 3.3M);
+            underTest = new UserReview("MoocJunkie", "Its free!", 3.8M);
         }
         
         [Fact]
@@ -36,10 +36,37 @@ namespace ReviewSite.Tests
         [Fact]
         public void User_Review_Has_Rating()
         {
-            decimal expected = 3.3M;
+            decimal expected = 3.8M;
             decimal model = underTest.Rating;
 
             Assert.Equal(expected, model);
+        }
+
+        [Fact]
+        public void UserReview_Calculates_Solid_Stars()
+        {
+            var result = underTest.SolidStars();
+            int expected = 3;
+
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void UserReview_Calculates_Half_Stars()
+        {
+            var result = underTest.HalfStars();
+            int expected = 1;
+
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void UserReview_Calculates_Empty_Stars()
+        {
+            var result = underTest.EmptyStars();
+            int expected = 1;
+
+            Assert.Equal(expected, result);
         }
     }
 }

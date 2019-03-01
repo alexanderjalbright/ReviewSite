@@ -30,5 +30,37 @@ namespace ReviewSite.Models
             Comment = comment;
             Rating = rating;
         }
+
+        public int SolidStars()
+        {
+
+            int solidStars = Convert.ToInt32(Math.Truncate(Rating));
+
+            return solidStars;
+        }
+
+        public int HalfStars()
+        {
+            int halfStars = 0;
+
+            decimal dec = Rating % 1;
+
+            if (dec >= 0.3M && dec <= 0.8M)
+            {
+                halfStars = 1;
+            }
+
+            return halfStars;
+        }
+
+        public int EmptyStars()
+        {
+            int solidStars = SolidStars();
+            int halfStars = HalfStars();
+
+            int emptyStars = 5 - (solidStars + halfStars);
+
+            return emptyStars;
+        }
     }
 }

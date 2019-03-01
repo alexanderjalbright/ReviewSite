@@ -15,7 +15,16 @@
 </head>
 <body>
     <div class="container">
-        <header></header>
+        <header>
+            <nav>
+                <ul class="navbar">
+                    <li><a href="/Home">Home</a></li>
+                    <li><a href="/Course">Courses</a></li>
+                    <li><a href="/Category">Categories</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </header>
         <main>
             <section class="reviews">
                 @foreach (var category in Model)
@@ -32,19 +41,16 @@
                 }
             </section>
             <aside>
-                <h1>All Courses</h1>
-                <a href="/Course">
-                    <div class="sort-box">
-                        <p>Home</p>
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
+                <h1>All Categories</h1>
+                <a href="/Category" class="sort-box">
+                    <p>By Category</p><i class="fas fa-chevron-right"></i>
                 </a>
-                <div class="sort-box">
+                <a href="#" class="sort-box">
                     <p>By Rating</p><i class="fas fa-chevron-right"></i>
-                </div>
-                <div class="sort-box">
+                </a>
+                <a href="#" class="sort-box">
                     <p>By Provider</p><i class="fas fa-chevron-right"></i>
-                </div>
+                </a>
             </aside>
         </main>
         <footer></footer>

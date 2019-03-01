@@ -11,10 +11,39 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Ubuntu" rel="stylesheet">
     <title>Details</title>
+
+    <script type="text/javascript">
+        function SwapDivsWithClick(div1, div2) {
+            d1 = document.getElementById(div1);
+            d2 = document.getElementById(div2);
+
+            d1.style.display = "none";
+            d2.style.display = "block";
+        }
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $(".course-nav li").click(function (e) {
+                e.preventDefault();
+                $(".course-nav li").removeClass("selected");
+                $(this).addClass("selected");
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="container">
-        <header></header>A
+        <header>
+            <nav>
+                <ul class="navbar">
+                    <li><a href="/Home">Home</a></li>
+                    <li><a href="/Course">Courses</a></li>
+                    <li><a href="/Category">Categories</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </header>
         <main>
             <div class="content">
                 <h1 class="course-title">@Model.Title</h1>
@@ -33,21 +62,48 @@
                     }
                     <span class="num-reviews">(@Model.UserReviews.Count())</span>
                 </div>
-                <div class="course-nav">
-                    <a href="#">Overview</a> |
-                    <a href="#">Reviews</a>
-                </div>
-                <hr />
+                <ul class="course-nav">
+                    <li onclick="SwapDivsWithClick('course-user-reviews','course-overview');" class="overview-link selected">Overview</li>
+                    <li onclick="SwapDivsWithClick('course-overview','course-user-reviews');" class="reviews-link">Reviews</li>
+                </ul>
                 <div class="course-content">
-                    @foreach (var userReview in Model.UserReviews)
-                    {
-                        <h2>Username: @userReview.UserName</h2>
-                        <h3>Rating: @userReview.Rating</h3>
-                        <p>"@userReview.Comment"</p>
-                        <br /><br />
-                    }
+                    <div class="course-overview" id="course-overview">
+                        <p>
+                            @Model.Overview
+                        </p>
+                    </div>
+                    <div class="course-user-reviews" id="course-user-reviews">
+                        @foreach (var userReview in Model.UserReviews)
+                        {
+                            <div class="user-review-card">
+                                <div class="user-review-header">
+                                    <img class="user-review-img" src="~/Images/useravatar.png" />
+                                    <div class="name-rating">
+                                        <span class="user-review-name">@userReview.UserName</span>
+                                        <div class="user-review-rating">
+                                            @for (int i = 0; i < userReview.SolidStars(); i++)
+                                            {
+                                                <i class="fas fa-star"></i>
+                                            }
+                                            @for (int i = 0; i < userReview.HalfStars(); i++)
+                                            {
+                                                <i class="fas fa-star-half-alt"></i>
+                                            }
+                                            @for (int i = 0; i < userReview.EmptyStars(); i++)
+                                            {
+                                                <i class="far fa-star"></i>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="user-review-comment">@userReview.Comment</p>
+                            </div>
+                        }
+                    </div>
+
                 </div>
             </div>
+
             <aside>
                 <img class="post-img" src="@Model.ImageURL" />
                 <div class="post-details">
@@ -63,4 +119,3 @@
 </body>
 </html>
 
- 
