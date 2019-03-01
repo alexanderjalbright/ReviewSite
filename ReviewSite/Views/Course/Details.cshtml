@@ -17,11 +17,20 @@
             d1 = document.getElementById(div1);
             d2 = document.getElementById(div2);
 
-                d1.style.display = "none";
-                d2.style.display = "block";
+            d1.style.display = "none";
+            d2.style.display = "block";
         }
     </script>
-
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("li").click(function (e) {
+                e.preventDefault();
+                $("li").removeClass("selected");
+                $(this).addClass("selected");
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -44,11 +53,10 @@
                     }
                     <span class="num-reviews">(@Model.UserReviews.Count())</span>
                 </div>
-                <div class="course-nav">
-                    <a href="#" onclick="SwapDivsWithClick('course-user-reviews','course-overview');">Overview</a> |
-                    <a href="#" onclick="SwapDivsWithClick('course-overview','course-user-reviews');">Reviews</a>
-                </div>
-                <hr />
+                <ul class="course-nav">
+                    <li onclick="SwapDivsWithClick('course-user-reviews','course-overview');" class="overview-link selected">Overview</li>
+                    <li onclick="SwapDivsWithClick('course-overview','course-user-reviews');" class="reviews-link">Reviews</li>
+                </ul>
                 <div class="course-content">
                     <div class="course-overview" id="course-overview">
                         <p>
