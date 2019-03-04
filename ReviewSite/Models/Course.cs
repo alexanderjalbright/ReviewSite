@@ -83,6 +83,13 @@ namespace ReviewSite.Models
 
             int solidStars = Convert.ToInt32(Math.Truncate(avgRating));
 
+            decimal dec = avgRating % 1;
+
+            if (dec > 0.7M)
+            {
+                solidStars = +1;
+            }
+
             return solidStars;
         }
 
@@ -94,7 +101,7 @@ namespace ReviewSite.Models
 
             decimal dec = avgRating % 1;
 
-            if (dec >= 0.3M && dec <= 0.8M)
+            if (dec >= 0.3M && dec <= 0.7M)
             {
                 halfStars = 1;
             }                
