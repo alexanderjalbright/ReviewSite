@@ -34,10 +34,16 @@ namespace ReviewSite.Repositories
             return db.Courses.Single(review => review.CourseId == id);
         }
 
-        [HttpPost]
+       
         public void CreateUserReview(UserReview review)
         {
             db.UserReviews.Add(review);
+            db.SaveChanges();
+        }
+        
+        public void DeleteUserReview(UserReview review)
+        {
+            db.UserReviews.Remove(review);
             db.SaveChanges();
         }
     }

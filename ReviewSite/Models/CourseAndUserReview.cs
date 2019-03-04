@@ -8,6 +8,7 @@ namespace ReviewSite.Models
 {
     public class CourseAndUserReview
     {
+
         public Course Course { get; set; }
         
         public UserReview NewUserReview { get; set; }

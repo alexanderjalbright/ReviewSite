@@ -1,4 +1,5 @@
 ﻿@model ReviewSite.Models.CourseAndUserReview
+
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = null;
@@ -32,7 +33,7 @@
             });
         });
 
-/**/</script>
+        /**/</script>
 </head>
 <body>
     <div class="container">
@@ -76,7 +77,7 @@
                     </div>
                     <div class="course-user-reviews" id="course-user-reviews">
 
-                        <form asp-action="Create">
+                        <form asp-action="CreateUserReview">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div class="user-review-card">
                                 <div class="user-review-header">
@@ -84,7 +85,7 @@
                                     <div class="name-rating">
                                         <span class="user-review-name">
                                             <label asp-for="NewUserReview.UserName" class="control-label"></label>
-                                            <input asp-for="NewUserReview.UserName" class="form-control"  />
+                                            <input asp-for="NewUserReview.UserName" class="form-control" />
                                             <span asp-validation-for="NewUserReview.UserName" class="text-danger"></span>
                                         </span>
 
@@ -104,20 +105,20 @@
                                     }
                                     <div class="form-group">
                                         <label asp-for="NewUserReview.Comment" class="control-label"></label>
-                                        <input asp-for="NewUserReview.Comment" class="form-control"  />
+                                        <input asp-for="NewUserReview.Comment" class="form-control" />
                                         <span asp-validation-for="NewUserReview.Comment" class="text-danger"></span>
 
                                     </div>
                                     <div class="form-group">
-                                        
+
                                         <input type="hidden" asp-for="NewUserReview.CourseId" class="form-control" placeholder="@Model.Course.CourseId" />
-                                        
+
 
                                     </div>
                                 </p>
                                 <div class="form-group">
-                                    
-                                    <input type="submit" value="Create" class="btn btn-default" />
+
+                                    <input type="submit" value="CreateUserReview" class="btn btn-default" />
                                 </div>
                             </div>
                         </form>
@@ -145,6 +146,10 @@
                                     </div>
                                 </div>
                                 <p class="user-review-comment">@userReview.Comment</p>
+                                <form asp-action="DeleteUserReview">
+                                   
+                    
+                                </form>
                             </div>
                         }
                     </div>

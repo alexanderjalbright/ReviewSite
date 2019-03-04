@@ -82,7 +82,7 @@ namespace ReviewSite
                     }
                 );
 
-            modelBuilder.Entity<UserReview>().HasData
+            modelBuilder.Entity<UserReview>(). HasData
                 (
 
                     new UserReview()
@@ -208,7 +208,7 @@ namespace ReviewSite
                         CourseId = 3
                     }
                 );
-
+           
             base.OnModelCreating(modelBuilder);
 
 

@@ -33,10 +33,16 @@ namespace ReviewSite.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(CourseAndUserReview model)
+        public ActionResult CreateUserReview(CourseAndUserReview model)
         {
             repo.CreateUserReview(model.NewUserReview);
             return RedirectToAction("Details/" + model.NewUserReview.CourseId);
+        }
+        [HttpPost]
+        public IActionResult DeleteUserReview(CourseAndUserReview model)
+        {
+            repo.DeleteUserReview(model.NewUserReview);
+            return RedirectToAction("Details/"+ model.NewUserReview.CourseId);
         }
     }
 }
