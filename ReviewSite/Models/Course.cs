@@ -87,7 +87,7 @@ namespace ReviewSite.Models
 
             if (dec > 0.7M)
             {
-                solidStars = +1;
+                solidStars += 1;
             }
 
             return solidStars;
