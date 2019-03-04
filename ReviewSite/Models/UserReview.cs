@@ -9,11 +9,11 @@ namespace ReviewSite.Models
     public class UserReview
     {
         public int UserReviewId { get; set; }
-        [Display(Prompt = "Username:")]
+
         public string UserName { get; set; }
-        [Display(Name = "Comment:")]
+
         public string Comment { get; set; }
-        [Display(Name = "Rating:")]
+
         public decimal Rating { get; set; }
 
         public int CourseId { get; set; }

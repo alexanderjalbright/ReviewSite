@@ -1,4 +1,5 @@
-﻿using ReviewSite.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using ReviewSite.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,23 +18,27 @@ namespace ReviewSite.Repositories
 
         public int Count()
         {
-            int count = db.Reviews.Count();
+            int count = db.Courses.Count();
 
             return count;
         }
 
         public IEnumerable<Course> GetAll()
         {
-            return db.Reviews.ToList();
+            return db.Courses.ToList();
         }
 
-        public CourseAndUserReview GetById(int id)
+        public Course GetById(int id)
         {
-            var model = new CourseAndUserReview();
 
-            model.Course = db.Reviews.Single(review => review.CourseId == id);
+            return db.Courses.Single(review => review.CourseId == id);
+        }
 
-            return model;
+        [HttpPost]
+        public void CreateUserReview(UserReview review)
+        {
+            db.UserReviews.Add(review);
+            db.SaveChanges();
         }
     }
 }

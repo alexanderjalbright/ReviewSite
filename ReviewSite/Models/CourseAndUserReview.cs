@@ -16,5 +16,6 @@ namespace ReviewSite.Models
         {
             NewUserReview = new UserReview();
         }
+
     }
 }
