@@ -39,6 +39,12 @@ namespace ReviewSite.Models
         {
 
             int solidStars = Convert.ToInt32(Math.Truncate(Rating));
+            decimal dec = Rating % 1;
+
+            if (dec > 0.7M)
+            {
+                solidStars += 1;
+            }
 
             return solidStars;
         }
