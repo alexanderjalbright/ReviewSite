@@ -209,6 +209,19 @@ aside {
 }
 
 .user-review-comment {
+    display: flex;
     margin-top: 1rem;
     margin-left: 10rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.create-btn {
+    margin-left: 1rem;
+}
+
+.create-comment {
+    display: inline-block;
 }

@@ -31,8 +31,7 @@
                 $(this).addClass("selected");
             });
         });
-
-/**/</script>
+    </script>
 </head>
 <body>
     <div class="container">
@@ -77,7 +76,7 @@
                     <div class="course-user-reviews" id="course-user-reviews">
 
                         <form asp-action="CreateUserReview">
-                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div asp-validation-summary="ModelOnly" class="text-danger hidden"></div>
                             <div class="user-review-card">
                                 <div class="user-review-header">
                                     <img class="user-review-img" src="~/Images/useravatar.png" />
@@ -98,7 +97,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="user-review-comment">
+                                <div class="user-review-comment">
                                     <div class="form-group">
                                         <label asp-for="NewUserReview.Comment" class="control-label"></label>
                                         <input asp-for="NewUserReview.Comment" class="form-control" />
@@ -111,13 +110,14 @@
 
 
                                     </div>
-                                </p>
-                                <div class="form-group">
+                                    <div class="form-group">
 
-                                    <input type="submit" value="Create" class="btn btn-default" />
+                                        <input type="submit" value="Create" class="create-btn" />
+                                    </div>
                                 </div>
                             </div>
                         </form>
+
                         <form asp-action="EditUserReview">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             @for (int j = 0; j < Model.Course.UserReviews.Count(); j++)
@@ -144,7 +144,7 @@
                                         </div>
                                     </div>
                                     <p class="user-review-comment">@Model.Course.UserReviews[j].Comment</p>
-                                    <input type="button" value="Delete" onclick="location.href='@Url.Action("DeleteUserReview", "Course", Model.Course.UserReviews[j])'">
+                                    @*<input type="button" value="Delete" onclick="location.href='@Url.Action("DeleteUserReview", "Course", Model.Course.UserReviews[j])'">*@
                                 </div>
 
                                 <input type="hidden" asp-for="Course.UserReviews[j].UserReviewId" />
@@ -188,15 +188,15 @@
                                     </div>
 
                                 </div>
-                                    }
-                                
-                        
+                            }
+
+
                         </form>
 
 
                     </div>
+                </div>
             </div>
-
             <aside>
                 <img class="post-img" src="@Model.Course.ImageURL" />
                 <div class="post-details">
