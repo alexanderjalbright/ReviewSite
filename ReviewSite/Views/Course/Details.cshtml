@@ -84,7 +84,7 @@
                                     <div class="name-rating">
                                         <span class="user-review-name">
                                             <label asp-for="NewUserReview.UserName" class="control-label"></label>
-                                            <input asp-for="NewUserReview.UserName" class="form-control"  />
+                                            <input asp-for="NewUserReview.UserName" class="form-control" />
                                             <span asp-validation-for="NewUserReview.UserName" class="text-danger"></span>
                                         </span>
 
@@ -99,58 +99,102 @@
                                     </div>
                                 </div>
                                 <p class="user-review-comment">
-                                    @{
-                                        Model.NewUserReview.CourseId = Model.Course.CourseId;
-                                    }
                                     <div class="form-group">
                                         <label asp-for="NewUserReview.Comment" class="control-label"></label>
-                                        <input asp-for="NewUserReview.Comment" class="form-control"  />
+                                        <input asp-for="NewUserReview.Comment" class="form-control" />
                                         <span asp-validation-for="NewUserReview.Comment" class="text-danger"></span>
 
                                     </div>
                                     <div class="form-group">
-                                        
+
                                         <input type="hidden" asp-for="NewUserReview.CourseId" class="form-control" placeholder="@Model.Course.CourseId" />
-                                        
+
 
                                     </div>
                                 </p>
                                 <div class="form-group">
-                                    
+
                                     <input type="submit" value="Create" class="btn btn-default" />
                                 </div>
                             </div>
                         </form>
-                        @foreach (var userReview in Model.Course.UserReviews)
-                        {
-                            <div class="user-review-card">
-                                <div class="user-review-header">
-                                    <img class="user-review-img" src="~/Images/useravatar.png" />
-                                    <div class="name-rating">
-                                        <span class="user-review-name">@userReview.UserName</span>
-                                        <div class="user-review-rating">
-                                            @for (int i = 0; i < userReview.SolidStars(); i++)
-                                            {
-                                                <i class="fas fa-star"></i>
-                                            }
-                                            @for (int i = 0; i < userReview.HalfStars(); i++)
-                                            {
-                                                <i class="fas fa-star-half-alt"></i>
-                                            }
-                                            @for (int i = 0; i < userReview.EmptyStars(); i++)
-                                            {
-                                                <i class="far fa-star"></i>
-                                            }
+                        <form asp-action="EditUserReview">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            @for (int j = 0; j < Model.Course.UserReviews.Count(); j++)
+                            {
+                                <div class="user-review-card">
+                                    <div class="user-review-header">
+                                        <img class="user-review-img" src="~/Images/useravatar.png" />
+                                        <div class="name-rating">
+                                            <span class="user-review-name">@Model.Course.UserReviews[j].UserName</span>
+                                            <div class="user-review-rating">
+                                                @for (int i = 0; i < Model.Course.UserReviews[j].SolidStars(); i++)
+                                                {
+                                                    <i class="fas fa-star"></i>
+                                                }
+                                                @for (int i = 0; i < Model.Course.UserReviews[j].HalfStars(); i++)
+                                                {
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                }
+                                                @for (int i = 0; i < Model.Course.UserReviews[j].EmptyStars(); i++)
+                                                {
+                                                    <i class="far fa-star"></i>
+                                                }
+                                            </div>
                                         </div>
                                     </div>
+                                    <p class="user-review-comment">@Model.Course.UserReviews[j].Comment</p>
+                                    <input type="button" value="Delete" onclick="location.href='@Url.Action("DeleteUserReview", "Course", Model.Course.UserReviews[j])'">
                                 </div>
-                                <p class="user-review-comment">@userReview.Comment</p>
-                                <input type="button" value="Delete" onclick="location.href='@Url.Action("DeleteUserReview", "Course", userReview)'">
-                            </div>
-                        }
-                    </div>
 
-                </div>
+                                <input type="hidden" asp-for="Course.UserReviews[j].UserReviewId" />
+                                <div class="user-review-card">
+                                    <div class="user-review-header">
+                                        <img class="user-review-img" src="~/Images/useravatar.png" />
+                                        <div class="name-rating">
+                                            <span class="user-review-name">
+                                                <label asp-for="Course.UserReviews[j].UserName" class="control-label"></label>
+                                                <input asp-for="Course.UserReviews[j].UserName" class="form-control" />
+                                                <span asp-validation-for="Course.UserReviews[j].UserName" class="text-danger"></span>
+                                            </span>
+
+                                            <div class="user-review-rating">
+
+                                                <div class="form-group">
+                                                    <label asp-for="Course.UserReviews[j].Rating" class="control-label"></label>
+                                                    <input asp-for="Course.UserReviews[j].Rating" class="form-control" />
+                                                    <span asp-validation-for="Course.UserReviews[j].Rating" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="user-review-comment">
+                                        <div class="form-group">
+                                            <label asp-for="Course.UserReviews[j].Comment" class="control-label"></label>
+                                            <input asp-for="Course.UserReviews[j].Comment" class="form-control" />
+                                            <span asp-validation-for="Course.UserReviews[j].Comment" class="text-danger"></span>
+
+                                        </div>
+                                        <div class="form-group">
+
+                                            <input type="hidden" asp-for="Course.UserReviews[j].CourseId" class="form-control" placeholder="@Model.Course.CourseId" />
+
+
+                                        </div>
+                                    </p>
+                                    <div class="form-group">
+
+                                        <input type="submit" value="Edit" class="btn btn-default" />
+                                    </div>
+
+                                </div>
+                                    }
+                                
+                        
+                        </form>
+
+
+                    </div>
             </div>
 
             <aside>

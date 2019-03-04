@@ -45,5 +45,15 @@ namespace ReviewSite.Repositories
             db.UserReviews.Remove(review);
             db.SaveChanges();
         }
+
+        public void EditUserReview(List<UserReview> reviews)
+        {
+            foreach(var review in reviews)
+            {
+                db.UserReviews.Update(review);
+            }
+            
+            db.SaveChanges();
+        }
     }
 }
