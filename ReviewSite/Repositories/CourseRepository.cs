@@ -27,9 +27,13 @@ namespace ReviewSite.Repositories
             return db.Reviews.ToList();
         }
 
-        public Course GetById(int id)
-        {            
-            return db.Reviews.Single(review => review.CourseId == id);
+        public CourseAndUserReview GetById(int id)
+        {
+            var model = new CourseAndUserReview();
+
+            model.Course = db.Reviews.Single(review => review.CourseId == id);
+
+            return model;
         }
     }
 }

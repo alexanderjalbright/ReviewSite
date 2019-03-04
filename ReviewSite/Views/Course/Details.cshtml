@@ -1,4 +1,4 @@
-﻿@model ReviewSite.Models.Course
+﻿@model ReviewSite.Models.CourseAndUserReview
 @{
     Layout = null;
 }
@@ -46,21 +46,21 @@
         </header>
         <main>
             <div class="content">
-                <h1 class="course-title">@Model.Title</h1>
+                <h1 class="course-title">@Model.Course.Title</h1>
                 <div class="course-rating">
-                    @for (int i = 0; i < Model.SolidStars(); i++)
+                    @for (int i = 0; i < Model.Course.SolidStars(); i++)
                     {
                         <i class="fas fa-star fa-2x"></i>
                     }
-                    @for (int i = 0; i < Model.HalfStars(); i++)
+                    @for (int i = 0; i < Model.Course.HalfStars(); i++)
                     {
                         <i class="fas fa-star-half-alt fa-2x"></i>
                     }
-                    @for (int i = 0; i < Model.EmptyStars(); i++)
+                    @for (int i = 0; i < Model.Course.EmptyStars(); i++)
                     {
                         <i class="far fa-star fa-2x"></i>
                     }
-                    <span class="num-reviews">(@Model.UserReviews.Count())</span>
+                    <span class="num-reviews">(@Model.Course.UserReviews.Count())</span>
                 </div>
                 <ul class="course-nav">
                     <li onclick="SwapDivsWithClick('course-user-reviews','course-overview');" class="overview-link selected">Overview</li>
@@ -69,11 +69,48 @@
                 <div class="course-content">
                     <div class="course-overview" id="course-overview">
                         <p>
-                            @Model.Overview
+                            @Model.Course.Overview
                         </p>
                     </div>
                     <div class="course-user-reviews" id="course-user-reviews">
-                        @foreach (var userReview in Model.UserReviews)
+
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="user-review-card">
+                                <div class="user-review-header">
+                                    <img class="user-review-img" src="~/Images/useravatar.png" />
+                                    <div class="name-rating">
+                                        <span class="user-review-name">
+                                            <label asp-for="NewUserReview.UserName" class="control-label"></label>
+                                            <input asp-for="NewUserReview.UserName" class="form-control" placeholder="Username"/>
+                                            <span asp-validation-for="NewUserReview.UserName" class="text-danger"></span>
+                                        </span>
+
+                                        <div class="user-review-rating">
+
+                                            <div class="form-group">
+                                                <label asp-for="NewUserReview.Rating" class="control-label"></label>
+                                                <input asp-for="NewUserReview.Rating" class="form-control" placeholder="Rating"/>
+                                                <span asp-validation-for="NewPet.Rating" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="user-review-comment">
+
+                                    <div class="form-group">
+                                        <label asp-for="NewUserReview.Comment" class="control-label"></label>
+                                        <input asp-for="NewUserReview.Comment" class="form-control" placeholder="Comment"/>
+                                        <span asp-validation-for="NewPet.Comment" class="text-danger"></span>
+
+                                    </div>
+                                </p>
+                                    <div class="form-group">
+                                        <input type="submit" value="Add Review" class="btn btn-default" />
+                                    </div>                               
+                            </div>
+                        </form>
+                        @foreach (var userReview in Model.Course.UserReviews)
                         {
                             <div class="user-review-card">
                                 <div class="user-review-header">
@@ -105,11 +142,11 @@
             </div>
 
             <aside>
-                <img class="post-img" src="@Model.ImageURL" />
+                <img class="post-img" src="@Model.Course.ImageURL" />
                 <div class="post-details">
-                    <p><span>Category: </span>@Model.Category.Name</p>
-                    <p><span>Start Date: </span>@Model.StartDate</p>
-                    <p><span>Duration: </span>@Model.Duration</p>
+                    <p><span>Category: </span>@Model.Course.Category.Name</p>
+                    <p><span>Start Date: </span>@Model.Course.StartDate</p>
+                    <p><span>Duration: </span>@Model.Course.Duration</p>
                     <p><span>Price: </span>FREE</p>
                 </div>
             </aside>
