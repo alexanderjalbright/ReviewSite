@@ -84,7 +84,7 @@
                                     <div class="name-rating">
                                         <span class="user-review-name">
                                             <label asp-for="NewUserReview.UserName" class="control-label"></label>
-                                            <input asp-for="NewUserReview.UserName" class="form-control" placeholder="Username" />
+                                            <input asp-for="NewUserReview.UserName" class="form-control"  />
                                             <span asp-validation-for="NewUserReview.UserName" class="text-danger"></span>
                                         </span>
 
@@ -92,7 +92,7 @@
 
                                             <div class="form-group">
                                                 <label asp-for="NewUserReview.Rating" class="control-label"></label>
-                                                <input asp-for="NewUserReview.Rating" class="form-control" placeholder="Rating" />
+                                                <input asp-for="NewUserReview.Rating" class="form-control" />
                                                 <span asp-validation-for="NewUserReview.Rating" class="text-danger"></span>
                                             </div>
                                         </div>
@@ -104,14 +104,14 @@
                                     }
                                     <div class="form-group">
                                         <label asp-for="NewUserReview.Comment" class="control-label"></label>
-                                        <input asp-for="NewUserReview.Comment" class="form-control" placeholder="Comment" />
+                                        <input asp-for="NewUserReview.Comment" class="form-control"  />
                                         <span asp-validation-for="NewUserReview.Comment" class="text-danger"></span>
 
                                     </div>
                                     <div class="form-group">
-                                        <label asp-for="NewUserReview.CourseId" class="control-label"></label>
-                                        <input asp-for="NewUserReview.CourseId" class="form-control" placeholder="@Model.Course.CourseId" />
-                                        <span asp-validation-for="NewUserReview.CourseId" class="text-danger"></span>
+                                        
+                                        <input type="hidden" asp-for="NewUserReview.CourseId" class="form-control" placeholder="@Model.Course.CourseId" />
+                                        
 
                                     </div>
                                 </p>

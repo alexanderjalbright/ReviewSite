@@ -10,10 +10,13 @@ namespace ReviewSite.Models
     {
         public int UserReviewId { get; set; }
 
+        [Display(Name = "", Prompt = "Username")]
         public string UserName { get; set; }
 
+        [Display(Name = "", Prompt = "Comment")]
         public string Comment { get; set; }
 
+        [Display(Name = "", Prompt = "Rating (0.0-5.0")]
         public decimal Rating { get; set; }
 
         public int CourseId { get; set; }
