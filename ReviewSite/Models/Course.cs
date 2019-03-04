@@ -24,7 +24,7 @@ namespace ReviewSite.Models
 
         public string Duration { get; set; }
 
-        public virtual IEnumerable<UserReview> UserReviews { get; set; }
+        public virtual List<UserReview> UserReviews { get; set; }
 
         public int CategoryId { get; set; }
 
