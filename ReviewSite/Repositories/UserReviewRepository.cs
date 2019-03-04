@@ -8,24 +8,33 @@ namespace ReviewSite.Repositories
     public class UserReviewRepository
     {
         ReviewContext db;
+ 
         public UserReviewRepository(ReviewContext db)
         {
             this.db = db;
         }
-        public void CreateReview(UserReview review) //Creates UserReview
+        public void Create(UserReview userreview) //Creates UserReview
         {
-            db.Add(review);
+            db.Add(userreview);
             db.SaveChanges();
         }
-        public void EditReview(UserReview review)
+        public void Edit(UserReview userreview)
         {
-            db.Update(review);
+            db.Update(userreview);
             db.SaveChanges();
         }
-        public void Delete(UserReview review)
+        public void Delete(UserReview userreview)
         {
-            db.Remove(review);
+            db.Remove(userreview);
             db.SaveChanges();
+        }
+        public IEnumerable<UserReview> GetAll()
+        {
+            return db.UserReviews.ToList();
+        }
+        public UserReview GetById(int id)
+        {
+            return db.UserReviews.Single(userreview => userreview.UserReviewId == id);
         }
     }
 }
