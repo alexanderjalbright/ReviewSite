@@ -46,9 +46,13 @@ namespace ReviewSite.Repositories
             db.SaveChanges();
         }
 
-        public void EditUserReview(UserReview review)
+        public void EditUserReview(List<UserReview> reviews)
         {
-            db.UserReviews.Update(review);
+            foreach(var review in reviews)
+            {
+                db.UserReviews.Update(review);
+            }
+            
             db.SaveChanges();
         }
     }

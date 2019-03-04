@@ -118,34 +118,35 @@
                                 </div>
                             </div>
                         </form>
-                        @for (int j = 0; j < Model.Course.UserReviews.Count(); j ++)
-                        {
-                            <div class="user-review-card">
-                                <div class="user-review-header">
-                                    <img class="user-review-img" src="~/Images/useravatar.png" />
-                                    <div class="name-rating">
-                                        <span class="user-review-name">@Model.Course.UserReviews[j].UserName</span>
-                                        <div class="user-review-rating">
-                                            @for (int i = 0; i < Model.Course.UserReviews[j].SolidStars(); i++)
-                                            {
-                                                <i class="fas fa-star"></i>
-                                            }
-                                            @for (int i = 0; i < Model.Course.UserReviews[j].HalfStars(); i++)
-                                            {
-                                                <i class="fas fa-star-half-alt"></i>
-                                            }
-                                            @for (int i = 0; i < Model.Course.UserReviews[j].EmptyStars(); i++)
-                                            {
-                                                <i class="far fa-star"></i>
-                                            }
+                        <form asp-action="EditUserReview">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            @for (int j = 0; j < Model.Course.UserReviews.Count(); j++)
+                            {
+                                <div class="user-review-card">
+                                    <div class="user-review-header">
+                                        <img class="user-review-img" src="~/Images/useravatar.png" />
+                                        <div class="name-rating">
+                                            <span class="user-review-name">@Model.Course.UserReviews[j].UserName</span>
+                                            <div class="user-review-rating">
+                                                @for (int i = 0; i < Model.Course.UserReviews[j].SolidStars(); i++)
+                                                {
+                                                    <i class="fas fa-star"></i>
+                                                }
+                                                @for (int i = 0; i < Model.Course.UserReviews[j].HalfStars(); i++)
+                                                {
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                }
+                                                @for (int i = 0; i < Model.Course.UserReviews[j].EmptyStars(); i++)
+                                                {
+                                                    <i class="far fa-star"></i>
+                                                }
+                                            </div>
                                         </div>
                                     </div>
+                                    <p class="user-review-comment">@Model.Course.UserReviews[j].Comment</p>
+                                    <input type="button" value="Delete" onclick="location.href='@Url.Action("DeleteUserReview", "Course", Model.Course.UserReviews[j])'">
                                 </div>
-                                <p class="user-review-comment">@Model.Course.UserReviews[j].Comment</p>
-                                <input type="button" value="Delete" onclick="location.href='@Url.Action("DeleteUserReview", "Course", Model.Course.UserReviews[j])'">
-                            </div>
-                            <form asp-action="EditUserReview">
-                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
                                 <input type="hidden" asp-for="Course.UserReviews[j].UserReviewId" />
                                 <div class="user-review-card">
                                     <div class="user-review-header">
@@ -185,12 +186,15 @@
 
                                         <input type="submit" value="Edit" class="btn btn-default" />
                                     </div>
-                                </div>
-                            </form>
-                        }
-                    </div>
 
-                </div>
+                                </div>
+                                    }
+                                
+                        
+                        </form>
+
+
+                    </div>
             </div>
 
             <aside>

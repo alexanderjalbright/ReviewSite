@@ -48,7 +48,7 @@ namespace ReviewSite.Controllers
         [HttpPost]
         public ActionResult EditUserReview(CourseAndUserReview model)
         {
-            repo.EditUserReview(model.Course.UserReviews[0]);
+            repo.EditUserReview(model.Course.UserReviews);
             return RedirectToAction("Details/" + model.Course.UserReviews[0].CourseId);
         }
     }
