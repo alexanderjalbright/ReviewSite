@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ReviewSite.Models;
 using ReviewSite.Repositories;
 
 namespace ReviewSite.Controllers
@@ -24,9 +25,24 @@ namespace ReviewSite.Controllers
 
         public ViewResult Details(int id)
         {
-            var model = repo.GetById(id);
+            var model = new CourseAndUserReview();
+            model.Course = repo.GetById(id);
+            model.NewUserReview.CourseId = id;
 
             return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult CreateUserReview(CourseAndUserReview model)
+        {
+            repo.CreateUserReview(model.NewUserReview);
+            return RedirectToAction("Details/" + model.NewUserReview.CourseId);
+        }
+        
+        public ActionResult DeleteUserReview(UserReview model)
+        {
+            repo.DeleteUserReview(model);
+            return RedirectToAction("Details/" + model.CourseId);
         }
     }
 }
