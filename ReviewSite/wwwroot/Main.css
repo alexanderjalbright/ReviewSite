@@ -1,65 +1,4 @@
-﻿* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-a {
-    text-decoration: none;
-}
-
-html {
-    font-size: 10px;
-    font-family: 'Ubuntu', sans-serif;
-}
-
-.container {
-    display: grid;
-    grid-template-rows: 10rem 1fr 10rem;
-    margin: 0 auto;
-}
-
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    position: fixed;
-    height: 10rem;
-    width: 100%;
-    background: #2271B3;
-    opacity: 1;
-}
-
-.navbar {
-    font-size: 2rem;
-    text-transform: capitalize;
-}
-
-.navbar li {
-    display: inline-block;
-    margin: 0rem 1rem;
-}
-
-.navbar li a {
-    color: white;
-    font-family: 'Proxima Nova';
-}
-
-main {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-start;
-    align-items: stretch;
-    max-width: 1920px;
-    width: 100%;
-    justify-self: center;
-    grid-row-start: 2;
-
-}
-
-aside {
+﻿aside {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,7 +8,7 @@ aside {
 }
 
     aside h1 {
-        color: #444;
+        color: #243B53;
         font-size: 3rem;
         margin-bottom: 2rem;
     }
@@ -90,7 +29,7 @@ aside {
 }
 
     .sort-box p {
-        color: #3988ca;
+        color: #2680C2;
         font-weight: bold;
     }
 
@@ -114,6 +53,7 @@ aside {
     height: 31.5rem;
     grid-template-columns: 45% auto;
     box-shadow: 0.5px 0.5px 3px #222;
+    background: white;
 }
 
 
@@ -136,18 +76,20 @@ aside {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     font-weight: normal;
+    color: #243B53;
 }
 
 .review-card-category {
     font-size: 1.5rem;
     font-style: italic;
     font-weight: normal;
-    color: #222;
+    color: #334E68;
 }
 
 .review-card-summary {
     margin-top: 3rem;
     font-size: 1.5rem;
+    color: #334E68;
 }
 
 .review-card-footer {
@@ -168,13 +110,13 @@ aside {
 }
 
 .num-reviews {
-    color: black;
+    color: #334E68;
     font-size: 1.3rem;
     margin-left: 1rem;
 }
 
 .review-card-button {
-    background-color: #2271B3;
+    background-color: #2680C2;
     color: white;
     padding: 1rem 2rem;
     font-size: 1.5rem;

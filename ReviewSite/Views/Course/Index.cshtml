@@ -10,6 +10,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Reviews Index</title>
+    <link href="~/Shared.css" rel="stylesheet" />
     <link href="~/Main.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Ubuntu" rel="stylesheet">
@@ -27,53 +28,51 @@
             </nav>
         </header>
         <main>
-            <section class="reviews">
-                @foreach (var review in Model)
-                {
-                <div class="review-card">
-                    <img src="@review.ImageURL" class="review-card-img" />
-                    <div class="review-card-content">
-                        <h2 class="review-card-title">@review.Title</h2>
-                        <h3 class="review-card-category">@review.Category.Name</h3>
-                        <p class="review-card-summary">@review.Summary</p>
-                        <div class="review-card-footer">
-                            <div class="review-card-rating">
-                                @for (int i = 0; i < review.SolidStars(); i++)
-                                {
-                                    <i class="fas fa-star fa-2x"></i>
-                                }
-                                @for (int i = 0; i < review.HalfStars(); i++)
-                                {
-                                    <i class="fas fa-star-half-alt fa-2x"></i>
-                                }
-                                @for (int i = 0; i < review.EmptyStars(); i++)
-                                {
-                                    <i class="far fa-star fa-2x"></i>
-                                }
-                                <span class="num-reviews">(@review.UserReviews.Count())</span>
-                            </div>
-                            <a href="/Course/Details/@review.CourseId"><div class="review-card-button">Details</div></a>
-                        </div>
-                    </div>
-                </div>
-                }
-            </section>
             <aside>
                 <h1>All Courses</h1>
                 <a href="/Category" class="sort-box">
-                        <p>By Category</p><i class="fas fa-chevron-right"></i>
-                </a>             
-                <a href="#" class="sort-box">
-                        <p>By Rating</p><i class="fas fa-chevron-right"></i>
+                    <p>By Category</p><i class="fas fa-chevron-right"></i>
                 </a>
                 <a href="#" class="sort-box">
-                        <p>By Provider</p><i class="fas fa-chevron-right"></i>
+                    <p>By Rating</p><i class="fas fa-chevron-right"></i>
+                </a>
+                <a href="#" class="sort-box">
+                    <p>By Provider</p><i class="fas fa-chevron-right"></i>
                 </a>
             </aside>
+            <section class="reviews">
+                @foreach (var review in Model)
+                {
+                    <div class="review-card">
+                        <img src="@review.ImageURL" class="review-card-img" />
+                        <div class="review-card-content">
+                            <h2 class="review-card-title">@review.Title</h2>
+                            <h3 class="review-card-category">@review.Category.Name</h3>
+                            <p class="review-card-summary">@review.Summary</p>
+                            <div class="review-card-footer">
+                                <div class="review-card-rating">
+                                    @for (int i = 0; i < review.SolidStars(); i++)
+                                    {
+                                        <i class="fas fa-star fa-2x"></i>
+                                    }
+                                    @for (int i = 0; i < review.HalfStars(); i++)
+                                    {
+                                        <i class="fas fa-star-half-alt fa-2x"></i>
+                                    }
+                                    @for (int i = 0; i < review.EmptyStars(); i++)
+                                    {
+                                        <i class="far fa-star fa-2x"></i>
+                                    }
+                                    <span class="num-reviews">(@review.UserReviews.Count())</span>
+                                </div>
+                                <a href="/Course/Details/@review.CourseId"><div class="review-card-button">Details</div></a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </section>
         </main>
-        <footer>
-
-        </footer>
+        <footer></footer>
     </div>
 </body>
 </html>
