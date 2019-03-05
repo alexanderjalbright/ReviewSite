@@ -88,45 +88,35 @@
 
                         <form asp-action="CreateUserReview" id="create-review-form">
                             <div asp-validation-summary="ModelOnly" class="text-danger hidden"></div>
-                            <div class="user-review-card">
-                                <div class="user-review-header">
-                                    <img class="user-review-img" src="~/Images/useravatar.png" />
-                                    <div class="name-rating">
-                                        <span class="user-review-name">
-                                            <label asp-for="NewUserReview.UserName" class="control-label"></label>
-                                            <input asp-for="NewUserReview.UserName" class="form-control" />
-                                            <span asp-validation-for="NewUserReview.UserName" class="text-danger"></span>
-                                        </span>
 
-                                        <div class="user-review-rating">
+                            @*<img class="user-review-img" src="~/Images/useravatar.png" />*@
 
-                                            <div class="form-group">
-                                                <label asp-for="NewUserReview.Rating" class="control-label"></label>
-                                                <input asp-for="NewUserReview.Rating" class="form-control" />
-                                                <span asp-validation-for="NewUserReview.Rating" class="text-danger"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="user-review-comment">
-                                    <div class="form-group">
-                                        <label asp-for="NewUserReview.Comment" class="control-label"></label>
-                                        <input asp-for="NewUserReview.Comment" class="form-control" />
-                                        <span asp-validation-for="NewUserReview.Comment" class="text-danger"></span>
-
-                                    </div>
-                                    <div class="form-group">
-
-                                        <input type="hidden" asp-for="NewUserReview.CourseId" class="form-control" placeholder="@Model.Course.CourseId" />
-
-
-                                    </div>
-                                    <div class="form-group">
-
-                                        <input type="submit" value="Create" class="create-btn" />
-                                    </div>
-                                </div>
+                            <div class="form-group">
+                                <label asp-for="NewUserReview.UserName" class="control-label"></label>
+                                <input asp-for="NewUserReview.UserName" class="form-control" />
+                                <span asp-validation-for="NewUserReview.UserName" class="text-danger"></span>
                             </div>
+
+                            <div class="form-group">
+                                <label asp-for="NewUserReview.Rating" class="control-label"></label>
+                                <input asp-for="NewUserReview.Rating" class="form-control" />
+                                <span asp-validation-for="NewUserReview.Rating" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group" id="comment-group">
+                                <label asp-for="NewUserReview.Comment" class="control-label"></label>
+                                <textarea asp-for="NewUserReview.Comment" class="form-control" id="comment-box"></textarea>
+                                <span asp-validation-for="NewUserReview.Comment" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="hidden" asp-for="NewUserReview.CourseId" class="form-control" placeholder="@Model.Course.CourseId" />
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Create" class="create-btn" />
+                            </div>
+
                         </form>
 
                         <form asp-action="EditUserReview">
@@ -155,7 +145,7 @@
                                         </div>
                                     </div>
                                     <p class="user-review-comment">@Model.Course.UserReviews[j].Comment</p>
-                                    @*<input type="button" value="Delete" onclick="location.href='@Url.Action("DeleteUserReview", "Course", Model.Course.UserReviews[j])'">*@
+                                    <input type="button" value="Delete" onclick="location.href='@Url.Action("DeleteUserReview", "Course", Model.Course.UserReviews[j])'" />
                                 </div>
 
                                 <input type="hidden" asp-for="Course.UserReviews[j].UserReviewId" />
