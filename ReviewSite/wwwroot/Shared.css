@@ -1,0 +1,63 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    background: #F0F4F8;
+    background: white;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 10rem 1fr 10rem;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 10rem;
+    width: 100%;
+    background: #2680C2;
+    opacity: 1;
+    z-index: 3;
+}
+
+.navbar {
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+    .navbar li {
+        display: inline-block;
+        margin: 0rem 1rem;
+    }
+
+        .navbar li a {
+            color: #F0F4F8;
+            font-family: 'Proxima Nova';
+        }
+
+main {
+    display: flex;
+    max-width: 1920px;
+    width: 100%;
+    justify-self: center;
+    grid-row-start: 2;
+    background: #F0F4F8;
+    background: white;
+}

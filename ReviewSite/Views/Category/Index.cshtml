@@ -9,6 +9,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Categories Index</title>
+    <link href="~/Shared.css" rel="stylesheet" />
     <link href="~/Main.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Ubuntu" rel="stylesheet">
@@ -26,21 +27,6 @@
             </nav>
         </header>
         <main>
-            <section class="reviews">
-                @foreach (var category in Model)
-                {
-                    <div class="review-card">
-                        <div class="review-card-content">
-                            <h2 class="review-card-title">@category.Name</h2>
-                            <h3>@category.Description</h3>
-                            <div class="review-card-footer">
-                                
-                                <a href="/Category/Details/@category.CategoryId"><div class="review-card-button">Details</div></a>
-                            </div>
-                        </div>
-                    </div>
-                }
-            </section>
             <aside>
                 <h1>All Categories</h1>
                 <a href="/Category" class="sort-box">
@@ -53,6 +39,21 @@
                     <p>By Provider</p><i class="fas fa-chevron-right"></i>
                 </a>
             </aside>
+            <section class="reviews">
+                @foreach (var category in Model)
+                {
+                    <div class="review-card">
+                        <div class="review-card-content">
+                            <h2 class="review-card-title">@category.Name</h2>
+                            <h3>@category.Description</h3>
+                            <div class="review-card-footer">
+
+                                <a href="/Category/Details/@category.CategoryId"><div class="review-card-button">Details</div></a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </section>
         </main>
         <footer></footer>
     </div>
