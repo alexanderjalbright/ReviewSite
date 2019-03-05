@@ -19,7 +19,17 @@
             d2 = document.getElementById(div2);
 
             d1.style.display = "none";
-            d2.style.display = "block";
+            d2.style.display = "flex";
+        }
+
+        function ToggleCreateReviewForm(div1) {
+            d1 = document.getElementById(div1);
+
+            if (d1.style.display == "none") {
+                d1.style.display = "flex";
+            } else {
+                d1.style.display = "none";
+            }
         }
     </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -74,8 +84,9 @@
                         </p>
                     </div>
                     <div class="course-user-reviews" id="course-user-reviews">
+                        <span class="create-review-link" onclick="ToggleCreateReviewForm('create-review-form');"><i class="fas fa-plus"></i><span>Add Review</span></span>
 
-                        <form asp-action="CreateUserReview">
+                        <form asp-action="CreateUserReview" id="create-review-form">
                             <div asp-validation-summary="ModelOnly" class="text-danger hidden"></div>
                             <div class="user-review-card">
                                 <div class="user-review-header">
