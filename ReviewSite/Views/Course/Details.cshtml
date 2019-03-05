@@ -125,7 +125,7 @@
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             @for (int j = 0; j < Model.Course.UserReviews.Count(); j++)
                             {
-                                <div class="user-review-card">
+                                <div class="user-review-card" id="real-card">
                                     <div class="user-review-header">
                                         <img class="user-review-img" src="~/Images/useravatar.png" />
                                         <div class="name-rating">
@@ -146,7 +146,7 @@
                                             </div>
                                             <div class="user-review-links">
                                                 <span class="delete-link" onclick="location.href='@Url.Action("DeleteUserReview", "Course", Model.Course.UserReviews[j])'">Delete</span> |
-                                                <span class="edit-link">Edit</span>
+                                                <span class="edit-link" onclick="SwapDivsWithClick('real-card','edit-card');">Edit</span>
                                             </div>
                                         </div>
                                     </div>
@@ -154,8 +154,8 @@
 
                                 </div>
 
-                                <input type="hidden" asp-for="Course.UserReviews[j].UserReviewId" />
-                                <div class="user-review-card edit-card">
+                                <input type="hidden" asp-for="Course.UserReviews[j].UserReviewId"/>
+                                <div class="user-review-card edit-card" id="edit-card">
                                     <div class="user-review-header">
                                         <img class="user-review-img" src="~/Images/useravatar.png" />
                                         <div class="name-rating">
@@ -172,6 +172,10 @@
                                                     <input asp-for="Course.UserReviews[j].Rating" class="form-control" />
                                                     <span asp-validation-for="Course.UserReviews[j].Rating" class="text-danger"></span>
                                                 </div>
+                                            </div>
+                                            <div class="user-review-links">
+                                                <span class="delete-link" onclick="location.href='@Url.Action("DeleteUserReview", "Course", Model.Course.UserReviews[j])'">Delete</span> |
+                                                <span class="edit-link" onclick="SwapDivsWithClick('edit-card','real-card');">Edit</span>
                                             </div>
                                         </div>
                                     </div>
