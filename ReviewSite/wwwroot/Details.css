@@ -249,7 +249,7 @@ aside {
     }
 
 #create-review-form {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
@@ -299,4 +299,17 @@ aside {
     width: 60rem;
     height: 20rem;
     resize: none;
+}
+
+.user-review-links {
+    font-size: 1.5rem;
+}
+
+.user-review-links span {
+    cursor: pointer;
+    color: #818181;
+}
+
+.edit-card {
+    display: none;
 }

@@ -25,11 +25,12 @@
         function ToggleCreateReviewForm(div1) {
             d1 = document.getElementById(div1);
 
-            if (d1.style.display == "none") {
-                d1.style.display = "flex";
-            } else {
+            if (d1.style.display == "flex") {
                 d1.style.display = "none";
+            } else {
+                d1.style.display = "flex";
             }
+
         }
     </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -142,14 +143,18 @@
                                                     <i class="far fa-star"></i>
                                                 }
                                             </div>
+                                            <div class="user-review-links">
+                                                <span value="Delete" onclick="location.href='@Url.Action("DeleteUserReview", "Course", Model.Course.UserReviews[j])'">Delete</span> |
+                                                <span>Edit</span>
+                                            </div>
                                         </div>
                                     </div>
                                     <p class="user-review-comment">@Model.Course.UserReviews[j].Comment</p>
-                                    <input type="button" value="Delete" onclick="location.href='@Url.Action("DeleteUserReview", "Course", Model.Course.UserReviews[j])'" />
+
                                 </div>
 
                                 <input type="hidden" asp-for="Course.UserReviews[j].UserReviewId" />
-                                <div class="user-review-card">
+                                <div class="user-review-card edit-card">
                                     <div class="user-review-header">
                                         <img class="user-review-img" src="~/Images/useravatar.png" />
                                         <div class="name-rating">
