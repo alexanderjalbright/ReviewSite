@@ -70,7 +70,11 @@ namespace ReviewSite.Models
                 totalRating += review.Rating;
             }
 
-            decimal avgRating = totalRating / UserReviews.Count();
+            decimal avgRating = 0M;
+            if ( UserReviews.Count() != 0)
+            {
+                avgRating = totalRating / UserReviews.Count();
+            }    
 
             decimal roundedAvgRating = Math.Round(avgRating, 1);
 
