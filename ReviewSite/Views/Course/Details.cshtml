@@ -94,7 +94,7 @@
                                 <input asp-for="NewUserReview.UserName" class="form-control" />
                                 <span asp-validation-for="NewUserReview.UserName" class="text-danger"></span>
                             </div>
-                            <div class="form-group star-rating-select">
+                            <div class="form-group" id="star-rating-select">
                                 <input class="star-rating_input" id="star-rating-5" type="radio" value="5" asp-for="NewUserReview.Rating" />
                                 <label class="star-rating_icon far fa-star" for="star-rating-5"></label>
                                 <input class="star-rating_input" id="star-rating-4" type="radio" value="4" asp-for="NewUserReview.Rating" />
