@@ -55,7 +55,7 @@ namespace ReviewSite.Models
 
             decimal dec = Rating % 1;
 
-            if (dec >= 0.3M && dec <= 0.8M)
+            if (dec >= 0.3M && dec <= 0.7M)
             {
                 halfStars = 1;
             }

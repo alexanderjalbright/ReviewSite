@@ -12,7 +12,7 @@ namespace ReviewSite.Tests
 
         public UserReviewModelTests()
         {
-            underTest = new UserReview("MoocJunkie", "Its free!", 3.8M);
+            underTest = new UserReview("MoocJunkie", "Its free!", 3.7M);
         }
         
         [Fact]
@@ -36,7 +36,7 @@ namespace ReviewSite.Tests
         [Fact]
         public void User_Review_Has_Rating()
         {
-            decimal expected = 3.8M;
+            decimal expected = 3.7M;
             decimal model = underTest.Rating;
 
             Assert.Equal(expected, model);
