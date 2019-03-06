@@ -275,3 +275,33 @@ aside {
 .edit-card {
     display: block;
 }
+
+
+
+.star-rating-select {
+    
+}
+
+.star-rating_icon {
+    float: right;
+    margin-right: auto;
+    padding-left: 2px;
+    cursor: pointer;
+    color: #FFB300;
+}
+
+    .star-rating_icon:last-child {
+        padding-left: 0;
+    }
+
+.star-rating_input {
+    display: none;
+}
+
+    .star-rating_icon:hover:before,
+    .star-rating_icon:hover ~ .star-rating_icon:before,
+    .star-rating_input:checked ~ .star-rating_icon:before {
+        font-family: "FontAwesome";
+        font-weight: 400;
+        content: "\f005";
+    }

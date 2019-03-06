@@ -8,12 +8,13 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
     <link href="~/Shared.css" rel="stylesheet" />
     <link href="~/Details.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Ubuntu" rel="stylesheet">
-    <title>Details</title>
-
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript">
         function SwapDivsWithClick(div1, div2) {
             d1 = document.getElementById(div1);
@@ -34,7 +35,6 @@
 
         }
     </script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script>
         $(function () {
             $(".course-nav li").click(function (e) {
@@ -87,40 +87,38 @@
                     </div>
                     <div class="course-user-reviews" id="course-user-reviews">
                         <span class="create-review-link" onclick="ToggleCreateReviewForm('create-review-form');"><i class="fas fa-plus"></i><span>Add Review</span></span>
-
                         <form asp-action="CreateUserReview" id="create-review-form">
                             <div asp-validation-summary="ModelOnly" class="text-danger hidden"></div>
-
-                            @*<img class="user-review-img" src="~/Images/useravatar.png" />*@
-
                             <div class="form-group">
                                 <label asp-for="NewUserReview.UserName" class="control-label"></label>
                                 <input asp-for="NewUserReview.UserName" class="form-control" />
                                 <span asp-validation-for="NewUserReview.UserName" class="text-danger"></span>
                             </div>
-
-                            <div class="form-group">
-                                <label asp-for="NewUserReview.Rating" class="control-label"></label>
-                                <input asp-for="NewUserReview.Rating" class="form-control" />
+                            <div class="form-group star-rating-select">
+                                <input class="star-rating_input" id="star-rating-5" type="radio" value="5" asp-for="NewUserReview.Rating" />
+                                <label class="star-rating_icon far fa-star" for="star-rating-5"></label>
+                                <input class="star-rating_input" id="star-rating-4" type="radio" value="4" asp-for="NewUserReview.Rating" />
+                                <label class="star-rating_icon far fa-star" for="star-rating-4"></label>
+                                <input class="star-rating_input" id="star-rating-3" type="radio" value="3" asp-for="NewUserReview.Rating" />
+                                <label class="star-rating_icon far fa-star" for="star-rating-3"></label>
+                                <input class="star-rating_input" id="star-rating-2" type="radio" value="2" asp-for="NewUserReview.Rating" />
+                                <label class="star-rating_icon far fa-star" for="star-rating-2"></label>
+                                <input class="star-rating_input" id="star-rating-1" type="radio" value="1" asp-for="NewUserReview.Rating" />
+                                <label class="star-rating_icon far fa-star" for="star-rating-1"></label>
                                 <span asp-validation-for="NewUserReview.Rating" class="text-danger"></span>
                             </div>
-
                             <div class="form-group" id="comment-group">
                                 <label asp-for="NewUserReview.Comment" class="control-label"></label>
                                 <textarea asp-for="NewUserReview.Comment" class="form-control" id="comment-box"></textarea>
                                 <span asp-validation-for="NewUserReview.Comment" class="text-danger"></span>
                             </div>
-
                             <div class="form-group">
                                 <input type="hidden" asp-for="NewUserReview.CourseId" class="form-control" placeholder="@Model.Course.CourseId" />
                             </div>
-
                             <div class="form-group">
                                 <input type="submit" value="Create" class="create-btn" />
                             </div>
-
                         </form>
-
                         <form asp-action="EditUserReview">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             @for (int j = 0; j < Model.Course.UserReviews.Count(); j++)
@@ -151,10 +149,8 @@
                                         </div>
                                     </div>
                                     <p class="user-review-comment">@Model.Course.UserReviews[j].Comment</p>
-
                                 </div>
-
-                                <input type="hidden" asp-for="Course.UserReviews[j].UserReviewId"/>
+                                <input type="hidden" asp-for="Course.UserReviews[j].UserReviewId" />
                                 <div class="user-review-card edit-card" id="edit-card-@j" style="display: none;">
                                     <div class="user-review-header">
                                         <img class="user-review-img" src="~/Images/useravatar.png" />
@@ -164,9 +160,7 @@
                                                 <input asp-for="Course.UserReviews[j].UserName" class="form-control" />
                                                 <span asp-validation-for="Course.UserReviews[j].UserName" class="text-danger"></span>
                                             </span>
-
                                             <div class="user-review-rating">
-
                                                 <div class="form-group">
                                                     <label asp-for="Course.UserReviews[j].Rating" class="control-label"></label>
                                                     <input asp-for="Course.UserReviews[j].Rating" class="form-control" />
@@ -184,28 +178,17 @@
                                             <label asp-for="Course.UserReviews[j].Comment" class="control-label"></label>
                                             <input asp-for="Course.UserReviews[j].Comment" class="form-control" />
                                             <span asp-validation-for="Course.UserReviews[j].Comment" class="text-danger"></span>
-
                                         </div>
                                         <div class="form-group">
-
                                             <input type="hidden" asp-for="Course.UserReviews[j].CourseId" class="form-control" placeholder="@Model.Course.CourseId" />
-
-
                                         </div>
                                         <div class="form-group">
-
                                             <input type="submit" value="Submit Changes" class="btn btn-default" />
                                         </div>
                                     </div>
-                                    
-
                                 </div>
                             }
-
-
                         </form>
-
-
                     </div>
                 </div>
             </div>
