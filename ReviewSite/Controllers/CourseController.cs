@@ -10,8 +10,8 @@ namespace ReviewSite.Controllers
 {
     public class CourseController : Controller
     {
-        CourseRepository repo;
-        public CourseController(CourseRepository repo)
+        ICourseRepository repo;
+        public CourseController(ICourseRepository repo)
         {
             this.repo = repo;
         }

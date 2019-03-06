@@ -21,8 +21,8 @@ namespace ReviewSite
 
             services.AddDbContext<ReviewContext>();
 
-            services.AddScoped<CourseRepository, CourseRepository>();
-            services.AddScoped<CategoryRepository, CategoryRepository>();
+            services.AddScoped<ICourseRepository, CourseRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             services.AddScoped<CourseController, CourseController>();
             services.AddScoped<CategoryController, CategoryController>();

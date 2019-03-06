@@ -1,25 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ReviewSite.Controllers;
 using ReviewSite.Models;
 using ReviewSite.Repositories;
-using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
+using NSubstitute;
 
 namespace ReviewSite.Tests
 {
     public class CategoryControllerTests
     {
         CategoryController underTest;
+        ICategoryRepository repo;
         public CategoryControllerTests()
         {
-            var context = new ReviewContext();
-            var categoryRepo = new CategoryRepository(context);
-            var reviewRepo = new CourseRepository(context);
+            repo = Substitute.For<ICategoryRepository>();
 
-            underTest = new CategoryController(categoryRepo);
+            underTest = new CategoryController(repo);
         }
 
         [Fact]
@@ -33,15 +33,19 @@ namespace ReviewSite.Tests
         [Fact]
         public void Index_Gets_List()
         {
-            var model = underTest.Index().Model;
+            var expectedModel = new List<Category>();            
+            repo.GetAll().Returns(expectedModel);
 
-            Assert.IsType<List<Category>>(model);
+            var result = underTest.Index().Model;
+           
+            Assert.Equal(expectedModel, result);
         }
 
         [Fact]
         public void Details_Has_A_View()
         {
-            var result = underTest.Details(1);
+            int id = 1;
+            var result = underTest.Details(id);
 
             Assert.IsType<ViewResult>(result);
         }
@@ -49,9 +53,13 @@ namespace ReviewSite.Tests
         [Fact]
         public void Details_Given_Review()
         {
-            var model = underTest.Details(1).Model;
+            var expectedId = 1;
+            var expectedModel = new Category();
+            repo.GetById(expectedId).Returns(expectedModel);
 
-            Assert.IsType<Category>(model);
+            var model = underTest.Details(expectedId).Model;
+
+             Assert.Equal(expectedModel, model);
         }
     }
 }
