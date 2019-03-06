@@ -8,10 +8,9 @@ using ReviewSite.Repositories;
 namespace ReviewSite.Controllers
 {
     public class CategoryController : Controller
-    {
-        
-        CategoryRepository repo;
-        public CategoryController(CategoryRepository repo)
+    {        
+        ICategoryRepository repo;
+        public CategoryController(ICategoryRepository repo)
         {
             this.repo = repo;
         }

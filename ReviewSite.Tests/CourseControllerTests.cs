@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ReviewSite.Controllers;
 using ReviewSite.Models;
 using ReviewSite.Repositories;
 using System.Collections.Generic;
+
+using NSubstitute;
 using Xunit;
 
 namespace ReviewSite.Tests
@@ -11,13 +14,11 @@ namespace ReviewSite.Tests
     public class ReviewControllerTests
     {
         CourseController underTest;
-
+        ICourseRepository repo;
         public ReviewControllerTests()
         {
-            var context = new ReviewContext();
-            var repository = new CourseRepository(context);
-
-            underTest = new CourseController(repository);
+            repo = Substitute.For<ICourseRepository>();
+            underTest = new CourseController(repo);
         }
 
         [Fact]
@@ -31,25 +32,45 @@ namespace ReviewSite.Tests
         [Fact]
         public void Index_Gets_List()
         {
-            var model = underTest.Index().Model;
+            var expectedmodel = new List<Course>();
+            repo.GetAll().Returns(expectedmodel);
 
-            Assert.IsType<List<Course>>(model);
+            var actualModel = underTest.Index().Model;
+
+            Assert.Equal(expectedmodel, actualModel);
         }
 
         [Fact]
         public void Details_Has_A_View()
         {
-            var result = underTest.Details(1);
+            int id = 1;
+            var result = underTest.Details(id);
 
             Assert.IsType<ViewResult>(result);
         }
 
         [Fact]
-        public void Details_Given_Review()
+        public void Details_Gets_Course()
         {
-            var model = underTest.Details(1).Model;
+            var expectedId = 1;
+            var expectedCourse = new Course();
+            repo.GetById(expectedId).Returns(expectedCourse);
 
-            Assert.IsType<Course>(model);
+            var model = (CourseAndUserReview)underTest.Details(expectedId).Model;
+
+            Assert.Equal(model.Course, expectedCourse);             
+        }
+
+        [Fact]
+        public void Details_Gets_UserReview()
+        {
+            var expectedId = 1;
+            var expectedCourse = new Course() { CourseId = expectedId };
+            repo.GetById(expectedId).Returns(expectedCourse);
+
+            var model = (CourseAndUserReview)underTest.Details(expectedId).Model;
+
+            Assert.Equal(model.NewUserReview.CourseId, expectedId);
         }
     }
 }

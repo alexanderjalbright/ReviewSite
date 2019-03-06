@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
-
+using NSubstitute;
 namespace ReviewSite.Tests
 {
     public class CourseRepositoryTests
@@ -37,7 +37,7 @@ namespace ReviewSite.Tests
         }
 
         [Fact]
-        public void Course_Repo_Returns_A_Review()
+          public void Course_Repo_Returns_A_Review()
         {
             var result = underTest.GetById(1);
 
@@ -53,14 +53,5 @@ namespace ReviewSite.Tests
 
             Assert.Equal(expected, result);
         }
-
-        //[Fact]
-        //public void Course_Repo_Returns_User_Review()
-        //{
-        //    string result = underTest.GetById(1).UserOpinionList[0].UserName;
-        //    string expected = "MoocJunkie";
-
-        //    Assert.Equal(expected, result);
-        //}
     }
 }

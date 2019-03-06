@@ -109,7 +109,7 @@ namespace ReviewSite.Tests
         public void Course_Calculates_Solid_Stars()
         {
             var result = underTest.SolidStars();
-            int expected = 3;
+            int expected = 4;
 
             Assert.Equal(expected, result);
         }
@@ -118,7 +118,7 @@ namespace ReviewSite.Tests
         public void Course_Calculates_Half_Stars()
         {
             var result = underTest.HalfStars();
-            int expected = 1;
+            int expected = 0;
 
             Assert.Equal(expected, result);
         }
