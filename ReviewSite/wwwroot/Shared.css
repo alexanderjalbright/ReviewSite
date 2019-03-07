@@ -44,7 +44,7 @@ header {
 
     .navbar li {
         display: inline-flex; 
-        margin: 0 2rem;
+        margin: 0 10rem;
     }
 
         .navbar li a:before {
