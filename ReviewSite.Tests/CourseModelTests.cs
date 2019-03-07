@@ -78,15 +78,6 @@ namespace ReviewSite.Tests
 
             Assert.Equal(expected, result);
         }
-
-        //[Fact]
-        //public void Course_Has_User_Opinion_List()
-        //{
-        //    var result = underTest.UserOpinionList;
-
-        //    Assert.NotEmpty(result);
-        //}
-
         [Fact]
         public void Course_Has_Tags()
         {

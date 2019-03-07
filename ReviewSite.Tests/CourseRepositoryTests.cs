@@ -37,14 +37,6 @@ namespace ReviewSite.Tests
         }
 
         [Fact]
-          public void Course_Repo_Returns_A_Review()
-        {
-            var result = underTest.GetById(1);
-
-            Assert.IsType<Course>(result);
-        }
-
-        [Fact]
         public void Course_Repo_Returns_Review_With_Matching_Id()
         {
             int expected = 1;
