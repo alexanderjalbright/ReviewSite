@@ -47,27 +47,6 @@ header {
         margin: 0 2rem;
     }
 
-        /*Option 1*/
-        /*.navbar li a {
-            color: #113955;
-            background-color: #aad2ee;
-            border: 2px solid #113955;
-            box-shadow: 2px 4px 6px #113955;
-            border-radius: 1rem;
-            padding: 1rem 6rem;
-            font-weight: bold;
-            transition: 0.4s ease;
-        }
-
-            .navbar li a:hover {
-                color: #113955;
-                background-color: #2680C2;
-                border: 2px solid #113955;
-                transform: scale(0.95);
-                box-shadow: 1px 1px 2px #000000;
-            }*/
-
-        /*Option 2*/
         .navbar li a:before {
             content: "";
             position: absolute;
