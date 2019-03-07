@@ -43,14 +43,66 @@ header {
 }
 
     .navbar li {
-        display: inline-block;
-        margin: 0rem 1rem;
+        display: inline-flex; 
+        margin: 0 2rem;
     }
 
-        .navbar li a {
-            color: #F0F4F8;
-            font-family: 'Proxima Nova';
+        /*Option 1*/
+        /*.navbar li a {
+            color: #113955;
+            background-color: #aad2ee;
+            border: 2px solid #113955;
+            box-shadow: 2px 4px 6px #113955;
+            border-radius: 1rem;
+            padding: 1rem 6rem;
+            font-weight: bold;
+            transition: 0.4s ease;
         }
+
+            .navbar li a:hover {
+                color: #113955;
+                background-color: #2680C2;
+                border: 2px solid #113955;
+                transform: scale(0.95);
+                box-shadow: 1px 1px 2px #000000;
+            }*/
+
+        /*Option 2*/
+        .navbar li a:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            visibility: hidden;
+            -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+            -webkit-transition: all 0.3s ease-in-out 0s;
+            transition: all 0.3s ease-in-out 0s;
+        }
+        .navbar li a:hover:before {
+            visibility: visible;
+            -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+        }
+
+        .navbar li a {
+            position: relative;
+            text-decoration: none;
+            font-size: 6rem;
+            color: #ffffff;
+            border-bottom: 4px solid #2680C2;
+            transition: 0.4s ease;
+        }
+
+            .navbar li a:hover {
+                color: transparent;
+                -webkit-text-stroke: 2px #ffffff;
+            }
+
+
 
 main {
     display: flex;
