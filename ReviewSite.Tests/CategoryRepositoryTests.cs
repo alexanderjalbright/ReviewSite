@@ -36,14 +36,6 @@ namespace ReviewSite.Tests
         }
 
         [Fact]
-        public void Category_Repo_Returns_A_Review()
-        {
-            var result = underTest.GetById(1);
-
-            Assert.IsType<Category>(result);
-        }
-
-        [Fact]
         public void Category_Repo_Returns_Review_With_Matching_Id()
         {
             int expected = 1;
