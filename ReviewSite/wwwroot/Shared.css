@@ -30,7 +30,7 @@ header {
     justify-content: flex-start;
     align-items: center;
     position: fixed;
-    height: 10rem;
+    height: 7rem;
     width: 100%;
     background: #2680C2;
     opacity: 1;
@@ -43,24 +43,23 @@ header {
     font-size: 2rem;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: center;
     color: transparent;
+    margin-left: 50vw;
 }
 
     .navbar li {
-        margin: 0 10rem;
+        margin: 0 5vw;
     }
 
-    
-        .logo {
-            max-width: 250px;
-            margin-left: 100px;
-            margin-right: 25vw;
-            float: left;
-            flex-grow: 1;
-            
-        }
+
+.logo {
+    position: absolute;
+    top: 23px;
+    left: 10px;
+    max-width: 250px;
+}
 
 
 
