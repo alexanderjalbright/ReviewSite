@@ -37,15 +37,27 @@ header {
     z-index: 3;
 }
 
+
+
 .navbar {
     font-size: 2rem;
     text-transform: capitalize;
 }
 
     .navbar li {
-        display: inline-flex; 
+        display: inline-flex;
         margin: 0 10rem;
+
     }
+
+    
+        .logo {
+            max-width: 250px;
+            float: left;
+            flex-grow: 1;
+        }
+
+
 
         .navbar li a:before {
             content: "";
@@ -80,6 +92,8 @@ header {
                 color: transparent;
                 -webkit-text-stroke: 2px #ffffff;
             }
+
+            
 
 
 
