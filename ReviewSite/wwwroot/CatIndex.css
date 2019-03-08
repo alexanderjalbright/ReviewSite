@@ -1,0 +1,53 @@
+﻿.categories {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 3rem 0;
+}
+
+.category-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+}
+
+.category-title {
+    color: #243B53;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.carousel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 2rem;
+
+}
+
+.carousel-btn {
+    font-size: 3rem;
+    color: #555;
+    cursor: pointer;
+}
+
+.slides {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    max-width: 144rem;
+    padding: 1rem 0;
+}
+
+.track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.review-card {
+    margin: 1rem;
+    width: 70rem;
+    min-width: 70rem;
+}
