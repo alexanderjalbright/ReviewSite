@@ -11,15 +11,46 @@
     <title>Categories Index</title>
     <link href="~/Shared.css" rel="stylesheet" />
     <link href="~/Main.css" rel="stylesheet" />
+    <link href="~/CatIndex.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Ubuntu" rel="stylesheet">
+
+    <script type="text/javascript">
+        var amount = 720;
+
+
+        function SlideTrackLeft(track) {
+            d1 = document.getElementById(track);
+            var transformStyle = document.getElementById(track).style.transform;
+            var translateX = transformStyle.replace(/[^-\d+$.]/g, '');
+            var value = +translateX;
+
+            value += amount;
+
+            if (value > 0)
+                value = 0
+
+            d1.style.transform = "translateX(" + value + "px)";
+        }
+
+        function SlideTrackRight(track) {
+            d1 = document.getElementById(track);
+            var transformStyle = document.getElementById(track).style.transform;
+            var translateX = transformStyle.replace(/[^-\d+$.]/g, '');
+            var value = +translateX;
+
+            value -= amount;
+
+            d1.style.transform = "translateX(" + value + "px)";
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <header>
             <nav>
+                <img class="logo" src="~/Images/MOOCA2.png" />
                 <ul class="navbar">
-                    <img class="logo" src="~/Images/MOOCA2.png" />
                     <li><a href="/Category">Categories</a></li>
                     <li><a href="/Course">Courses</a></li>
                 </ul>
@@ -38,17 +69,75 @@
                     <p>By Provider</p><i class="fas fa-chevron-right"></i>
                 </a>
             </aside>
-            <section class="reviews">
+            <section class="categories">
                 @foreach (var category in Model)
                 {
-                    <div class="review-card">
-                        <div class="review-card-content">
-                            <h2 class="review-card-title">@category.Name</h2>
-                            <h3>@category.Description</h3>
-                            <div class="review-card-footer">
+                    var id = category.CategoryId;
 
-                                <a href="/Category/Details/@category.CategoryId"><div class="review-card-button">Details</div></a>
+                    <div class="category-container">
+                        <h2 class="category-title">@category.Name</h2>
+                        <div class="carousel">
+                            <i onclick="SlideTrackLeft('track-@id');" class="fas fa-angle-left carousel-btn carousel-btn--left"></i>
+                            <div class="slides">
+                                <div class="track" id="track-@id">
+                                    @foreach (var course in category.Courses)
+                                    {
+                                        <div class="review-card">
+                                            <img src="@course.ImageURL" class="review-card-img" />
+                                            <div class="review-card-content">
+                                                <h2 class="review-card-title">@course.Title</h2>
+                                                <h3 class="review-card-category">@course.Category.Name</h3>
+                                                <p class="review-card-summary">@course.Summary</p>
+                                                <div class="review-card-footer">
+                                                    <div class="review-card-rating">
+                                                        @for (int i = 0; i < course.SolidStars(); i++)
+                                                        {
+                                                            <i class="fas fa-star fa-2x"></i>
+                                                        }
+                                                        @for (int i = 0; i < course.HalfStars(); i++)
+                                                        {
+                                                            <i class="fas fa-star-half-alt fa-2x"></i>
+                                                        }
+                                                        @for (int i = 0; i < course.EmptyStars(); i++)
+                                                        {
+                                                            <i class="far fa-star fa-2x"></i>
+                                                        }
+                                                        <span class="num-reviews">(@course.UserReviews.Count())</span>
+                                                    </div>
+                                                    <a href="/Course/Details/@course.CourseId"><div class="review-card-button">Details</div></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="review-card">
+                                            <img src="@course.ImageURL" class="review-card-img" />
+                                            <div class="review-card-content">
+                                                <h2 class="review-card-title">@course.Title</h2>
+                                                <h3 class="review-card-category">@course.Category.Name</h3>
+                                                <p class="review-card-summary">@course.Summary</p>
+                                                <div class="review-card-footer">
+                                                    <div class="review-card-rating">
+                                                        @for (int i = 0; i < course.SolidStars(); i++)
+                                                        {
+                                                            <i class="fas fa-star fa-2x"></i>
+                                                        }
+                                                        @for (int i = 0; i < course.HalfStars(); i++)
+                                                        {
+                                                            <i class="fas fa-star-half-alt fa-2x"></i>
+                                                        }
+                                                        @for (int i = 0; i < course.EmptyStars(); i++)
+                                                        {
+                                                            <i class="far fa-star fa-2x"></i>
+                                                        }
+                                                        <span class="num-reviews">(@course.UserReviews.Count())</span>
+                                                    </div>
+                                                    <a href="/Course/Details/@course.CourseId"><div class="review-card-button">Details</div></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
                             </div>
+                            <i onclick="SlideTrackRight('track-@id');" class="fas fa-angle-right carousel-btn carousel-btn--right"></i>
                         </div>
                     </div>
                 }

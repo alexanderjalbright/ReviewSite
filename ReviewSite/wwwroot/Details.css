@@ -199,6 +199,8 @@ aside {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    align-self: center;
+    width: 66rem;
     padding: 3rem;
     margin-bottom: 20rem;
     background: #829ab1;
@@ -295,7 +297,8 @@ aside {
     .star-rating_input:checked ~ .star-rating_icon:before {
         font-family: "FontAwesome";
         font-weight: 400;
-        font-size: 2.4rem;
+        font-size: 22px;
+        margin-left: 2px;
         width: 24.5px;
         height: 20px;
         content: "\f005";
