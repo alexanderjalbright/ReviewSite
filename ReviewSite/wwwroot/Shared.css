@@ -63,10 +63,13 @@ nav {
     }
 
         .navbar li:hover {
-            /*color: transparent;
-                -webkit-text-stroke: 2px #ffffff;*/
-            margin-bottom: 5px;
-            transition: margin-bottom 0.1s ease-in-out;
+            /*margin-bottom: 5px;
+            transition: margin-bottom 0.1s ease-in-out;*/
+        }
+
+        .navbar li a:hover {
+            color: transparent;
+            -webkit-text-stroke: 2px #ffffff;
         }
 
         .navbar li a:before {

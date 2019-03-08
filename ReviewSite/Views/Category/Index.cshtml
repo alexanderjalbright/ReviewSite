@@ -16,27 +16,32 @@
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Ubuntu" rel="stylesheet">
 
     <script type="text/javascript">
-        var position = 0;
-        var amount = 1440;
+        var amount = 720;
 
 
         function SlideTrackLeft(track) {
-            position += amount;
-
-            if (position > 0)
-                position = 0;
-
             d1 = document.getElementById(track);
+            var transformStyle = document.getElementById(track).style.transform;
+            var translateX = transformStyle.replace(/[^-\d+$.]/g, '');
+            var value = +translateX;
 
-            d1.style.transform = "translateX(" + position + "px)";
+            value += amount;
+
+            if (value > 0)
+                value = 0
+
+            d1.style.transform = "translateX(" + value + "px)";
         }
 
         function SlideTrackRight(track) {
-            position -= amount;
-
             d1 = document.getElementById(track);
+            var transformStyle = document.getElementById(track).style.transform;
+            var translateX = transformStyle.replace(/[^-\d+$.]/g, '');
+            var value = +translateX;
 
-            d1.style.transform = "translateX(" + position + "px)";
+            value -= amount;
+
+            d1.style.transform = "translateX(" + value + "px)";
         }
     </script>
 </head>
@@ -64,22 +69,6 @@
                     <p>By Provider</p><i class="fas fa-chevron-right"></i>
                 </a>
             </aside>
-            @*<section class="reviews">
-                @foreach (var category in Model)
-                {
-                    <div class="review-card">
-                        <div class="review-card-content">
-                            <h2 class="review-card-title">@category.Name</h2>
-                            <h3>@category.Description</h3>
-                            <div class="review-card-footer">
-
-                                <a href="/Category/Details/@category.CategoryId"><div class="review-card-button">Details</div></a>
-                            </div>
-                        </div>
-                    </div>
-                }
-            </section>*@
-
             <section class="categories">
                 @foreach (var category in Model)
                 {
